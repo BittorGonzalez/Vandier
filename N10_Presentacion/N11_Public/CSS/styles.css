@@ -1,5 +1,6 @@
 @import url("./header.css");
 @import url("./404.css");
+@import url("./footer.css");
 :root {
   --background-color: #000000;
   --white-color: #ffffff;

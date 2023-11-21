@@ -43,7 +43,7 @@ footer .container-icon {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(footer.png);
+  background-image: url(../../N14_Assets/Images/footer.png);
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
