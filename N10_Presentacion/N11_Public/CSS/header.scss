@@ -1,0 +1,57 @@
+.navbar {
+  background-color: #f8f9fa;
+  padding: 0;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: sticky;
+  top: 0px;
+
+  .dlinks {
+    width: 300px;
+    margin-right: auto;
+    ul {
+      padding: 0;
+      list-style: none;
+      white-space: nowrap;
+      li {
+        display: inline-block;
+        margin-left: 20px;
+        margin-right: 20px;
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .dlogo {
+    margin-top: auto;
+    margin-bottom: auto;
+    img {
+      width: 100px;
+    }
+  }
+
+  .diconos {
+    width: 300px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    ul {
+      padding: 0;
+      list-style: none;
+      white-space: nowrap;
+      li {
+        display: inline-block;
+        margin-left: 15px;
+        margin-right: 15px;
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+      }
+    }
+  }
+}

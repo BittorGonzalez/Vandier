@@ -1,0 +1,54 @@
+.navbar {
+  background-color: #f8f9fa;
+  padding: 0;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: sticky;
+  top: 0px;
+}
+.navbar .dlinks {
+  width: 300px;
+  margin-right: auto;
+}
+.navbar .dlinks ul {
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.navbar .dlinks ul li {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.navbar .dlinks ul li a {
+  text-decoration: none;
+  color: #000;
+}
+.navbar .dlogo {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.navbar .dlogo img {
+  width: 100px;
+}
+.navbar .diconos {
+  width: 300px;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.navbar .diconos ul {
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.navbar .diconos ul li {
+  display: inline-block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.navbar .diconos ul li a {
+  text-decoration: none;
+  color: #000;
+}/*# sourceMappingURL=header.css.map */
