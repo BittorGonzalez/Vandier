@@ -1,27 +1,22 @@
 @import url("./header.css");
 @import url("./footer.css");
+
 :root {
   --background-color: #000000;
   --white-color: #ffffff;
 }
+
 /* Fuente San Francisco Light */
 @font-face {
   font-family: "San-Francisco-Light";
-  src: url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Light.otf") format("truetype"),
-    url("../../N14_Assets/Fonts/SF-Pro-Text-Light.woff2") format("woff2"),
-    url("../../N14_Assets/Fonts/SF-Pro-Text-Light.woff") format("woff"),
-    url("../../N14_Assets/Fonts/SF-Pro-Text-Light.otf") format("opentype");
+  src: url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Light.otf") format("truetype"), url("../../N14_Assets/Fonts/SF-Pro-Text-Light.woff2") format("woff2"), url("../../N14_Assets/Fonts/SF-Pro-Text-Light.woff") format("woff"), url("../../N14_Assets/Fonts/SF-Pro-Text-Light.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
-
 /* Fuente San Francisco Semibold */
 @font-face {
   font-family: "San-Francisco-Semibold";
-  src: url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.ttf") format("truetype"),
-    url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.woff2") format("woff2"),
-    url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.woff") format("woff"),
-    url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.otf") format("opentype");
+  src: url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.ttf") format("truetype"), url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.woff2") format("woff2"), url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.woff") format("woff"), url("../../N14_Assets/Fonts/San Francisco/SF-Pro-Text-Semibold.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -30,4 +25,4 @@ body {
   font-family: "San-Francisco-Light";
   margin: 0;
   padding: 0;
-}
+}/*# sourceMappingURL=styles.css.map */

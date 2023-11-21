@@ -1,6 +1,8 @@
-body {
-  background-image: url("../../N14_Assets/Images/404.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #6f00ff;
+main {
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: #26242b;
+}
+main img {
+  width: 100%;
 }/*# sourceMappingURL=404.css.map */
