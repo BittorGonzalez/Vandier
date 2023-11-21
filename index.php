@@ -18,8 +18,11 @@
 <head>
    <?php require_once './N10_Presentacion/N13_Plantillas/head.php';
    
-   if (isset($URL)) {
+   if (isset($URL) && $URL != "404") {
     echo '<link rel="stylesheet" type="text/css" href="N10_Presentacion/N11_Public/CSS/' . $URL[0] . '.css">';
+
+    }{
+        echo '<link rel="stylesheet" type="text/css" href="N10_Presentacion/N11_Public/CSS/404.css">';
 
     }
    ?>
