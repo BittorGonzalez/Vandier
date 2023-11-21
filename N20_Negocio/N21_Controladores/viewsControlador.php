@@ -5,9 +5,10 @@
 
     class viewsControlador extends viewsModelo{
         
-        public function obtenerVistasControlador($vista){
-            if($vista != ""){
-                $respuesta = $this->obtenerVistasModelo($vista);
+        public function obtenerVistasControlador($vistas){
+
+            if($vistas != ""){
+                $respuesta = $this->obtenerVistasModelo($vistas);
                 
             }else{
                 $respuesta = "404";

@@ -26,4 +26,12 @@ body {
 
 ul {
   margin: 0 !important;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+  min-height: 80vh;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */

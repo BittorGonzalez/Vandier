@@ -1,15 +1,22 @@
+<?php
+
+require_once './N00_Config/app.php'; 
+
+
+?>
+
 <header class="navbar">
     <!-- ENLACES -->
     <div class="dlinks">
         <ul>
             <li>
-                <a href="#">Inicio</a>
+                <a href="<?php echo APP_URL ?>/inicio">Inicio</a>
             </li>
             <li>
-                <a href="#">Tienda</a>
+                <a href="<?php echo APP_URL ?>/tienda">Tienda</a>
             </li>
             <li>
-                <a href="#">Contacto</a>
+            <a href="<?php echo APP_URL ?>/contacto">Contacto</a>
             </li>
         </ul>
     </div>
