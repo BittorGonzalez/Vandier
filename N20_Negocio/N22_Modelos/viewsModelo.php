@@ -10,7 +10,7 @@
             //Se definen las vistas que pueden accederse
             //TODO: Añadir las vistas/crear alguna configuracion que las incluya
 
-            $whitelist = ["dashboard", "inicio", "login"];
+            $whitelist = ["dashboard", "inicio", "login", "tienda", "contacto", "perfil", "carrito", "dashboard", "favoritos"];
 
             if(in_array($vista, $whitelist)){
 
