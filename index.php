@@ -20,6 +20,7 @@ if (isset($_GET['views'])) {
 
 <body>
     <?php require_once './N10_Presentacion/N13_Plantillas/header.php' ?>
+
     <?php
 
     use N20_Negocio\N21_Controladores\viewsControlador;
@@ -32,8 +33,9 @@ if (isset($_GET['views'])) {
 
     require_once './N10_Presentacion/N13_Plantillas/script.php'
 
-        ?>
+    ?>
 
+    <?php require_once './N10_Presentacion/N13_Plantillas/footer.php' ?>
 </body>
 
 </html>
