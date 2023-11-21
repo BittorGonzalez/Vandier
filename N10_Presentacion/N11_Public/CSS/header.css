@@ -1,11 +1,11 @@
 .navbar {
   background-color: #f8f9fa;
-  padding: 0;
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 10px;
   position: sticky;
   top: 0px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1.2em 0em;
 }
 .navbar .dlinks {
   width: 300px;
