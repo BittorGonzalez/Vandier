@@ -32,13 +32,16 @@
 
     use N20_Negocio\N21_Controladores\viewsControlador;
 
+    require_once './N10_Presentacion/N13_Plantillas/header.php';
+
     $viewsControlador = new viewsControlador();
 
     $vista = $viewsControlador->obtenerVistasControlador($URL[0]);
 
     require_once $vista;
     
-    require_once './N10_Presentacion/N13_Plantillas/script.php'
+    require_once './N10_Presentacion/N13_Plantillas/footer.php';
+    require_once './N10_Presentacion/N13_Plantillas/script.php';
 
 ?>
 
