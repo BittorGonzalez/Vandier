@@ -1,3 +1,10 @@
 RewriteEngine On
 Options All -Indexes
-RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1
+
+# Redirigir solicitudes que contienen "prueba" a N60_Test/prueba.php
+RewriteRule ^prueba$ N60_Test/prueba.php [L]
+
+# Redirigir otras solicitudes a index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9/ñÑ-]+)$ index.php?views=$1 [L]
