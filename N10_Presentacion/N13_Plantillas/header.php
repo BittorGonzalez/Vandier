@@ -16,9 +16,11 @@
 
     <!-- LOGO -->
     <div class="dlogo">
-        <a class="" href="#"><img class="logonavbar" src="/Vandier-master_2/N10_Presentacion/N14_Assets/Images/logotexto.png"
+        <a class="" href="#"><img class="logonavbar" src="N10_Presentacion\N14_Assets\Images\logotexto.png"
                 alt="Logo"></a>
     </div>
+
+    
 
     <!-- ICONOS -->
     <div class="diconos">

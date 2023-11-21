@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="N10_Presentacion\N11_Public\CSS\404.css">
 
 
 <main>
