@@ -56,15 +56,15 @@
 
         <hr>
         <div class="container-icon">
-            <img src="#" alt="icon">
+            <img src="../N14_Assets/Icons/favicon-white.png" alt="icon">
             <div class="">
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-google"></a>
-                <a href="#" class="fa fa-linkedin"></a>
-                <a href="#" class="fa fa-youtube"></a>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-pinterest"></a>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-pinterest-p"></i>
             </div>
             <strong><p>
                  © COPYRIGHT 2023 VANDIER S.L | TÉRMINOS DE USO | POLÍTICA DE COOKIES | POLÍTICA DE PRIVACIDAD
