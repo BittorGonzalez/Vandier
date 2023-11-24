@@ -56,7 +56,7 @@
 
         <hr>
         <div class="container-icon">
-            <img src="../N14_Assets/Icons/favicon-white.png" alt="icon">
+            <img class="logo" src="N10_Presentacion\N14_Assets\Icons\favicon-white.png" alt="icon">
             <div class="">
                 <i class="fa-brands fa-facebook-f"></i>
                 <i class="fa-brands fa-x-twitter"></i>
