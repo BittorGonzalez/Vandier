@@ -1,1 +1,9 @@
-/*# sourceMappingURL=tienda.css.map */
+.mainTitle {
+  font-size: 9em;
+  letter-spacing: 0.1em;
+  font-family: "San-Francisco-Semibold";
+}
+
+.hero {
+  height: 40em;
+}/*# sourceMappingURL=tienda.css.map */
