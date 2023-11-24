@@ -19,6 +19,8 @@
 <head>
    <?php 
 
+    require_once './N10_Presentacion/N13_Plantillas/head.php';
+
 
    $viewsControlador = new viewsControlador();
    
@@ -30,7 +32,6 @@
 
     }
 
-    require_once './N10_Presentacion/N13_Plantillas/head.php';
    ?>
    
 </head>
@@ -39,6 +40,7 @@
 
 <?php 
 
+    
     require_once './N10_Presentacion/N13_Plantillas/header.php';
 
     $viewsControlador = new viewsControlador();

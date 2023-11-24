@@ -38,9 +38,9 @@ ul{
 
 main{
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  padding-top:2em ;
   min-height: 80vh;
   color: white;
-
 }
+

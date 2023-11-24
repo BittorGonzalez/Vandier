@@ -17,7 +17,7 @@
                 <!-- End of Topbar -->
 
 
-                <h2 class="text-white">BALANCE</h2>
+                <h2 class="text-white">USUARIOS</h2>
             </div>
             <!-- End of Main Content -->
 
@@ -26,4 +26,3 @@
     </div>
 
     
-
