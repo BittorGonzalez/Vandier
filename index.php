@@ -1,5 +1,4 @@
 <?php
-   use N20_Negocio\N21_Controladores\viewsControlador;
 
     require_once './N00_Config/app.php'; 
     require_once './autoload.php';
@@ -21,17 +20,6 @@
 
     require_once './N10_Presentacion/N13_Plantillas/head.php';
 
-
-   $viewsControlador = new viewsControlador();
-   
-   if (isset($URL) && $viewsControlador->esVistaPermitida($URL[0])) {
-    echo '<link rel="stylesheet" type="text/css" href="N10_Presentacion/N11_Public/CSS/' . $URL[0] . '.css">';
-
-    }else{
-        echo '<link rel="stylesheet" type="text/css" href="N10_Presentacion/N11_Public/CSS/404.css">';
-
-    }
-
    ?>
    
 </head>
@@ -40,7 +28,8 @@
 
 <?php 
 
-    
+    use N20_Negocio\N21_Controladores\viewsControlador;
+
     require_once './N10_Presentacion/N13_Plantillas/header.php';
 
     $viewsControlador = new viewsControlador();
@@ -52,6 +41,7 @@
     require_once './N10_Presentacion/N13_Plantillas/footer.php';
     require_once './N10_Presentacion/N13_Plantillas/script.php';
 
+   
 ?>
 
 </body>

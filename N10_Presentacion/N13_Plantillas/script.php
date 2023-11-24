@@ -5,9 +5,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+<script src="N10_Presentacion\N11_Public\JS\main.js"></script>
+<?php
+//INFO: DESCOMENTAR LINEAS PARA QUE APLCIOQUE JS, PERO COMO NO TODAS LAS PAGINAS VAN A TENER JS HABRIA QUE HACER UNA VALIDACION
 
-<!-- Page level plugins -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+//  if (isset($URL) && $viewsControlador->esVistaPermitida($URL[0])) {
+//     echo '<script src="N10_Presentacion\N11_Public\JS\\' . $URL[0] .'.js "></script>';
 
+//     }
+
+?>
