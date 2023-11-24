@@ -6,6 +6,7 @@
   height: -moz-fit-content;
   height: fit-content;
   padding: 1.2em 0em;
+  z-index: 10;
 }
 .navbar .dlinks {
   width: 300px;
