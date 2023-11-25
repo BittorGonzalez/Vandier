@@ -52,4 +52,83 @@
 .navbar .diconos ul li a {
   text-decoration: none;
   color: #000;
+}
+
+.login_content, .carrito_content {
+  width: 17em;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  right: -13px;
+  background-color: white;
+}
+.login_content .form-control:focus, .carrito_content .form-control:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.178) !important;
+}
+.login_content .alert-danger, .carrito_content .alert-danger {
+  word-wrap: break-word;
+}
+
+.login_content::before, .carrito_content::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 85%;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent white transparent; /* Define el color de la flecha (en este caso, blanco) */
+}
+
+.carrito_content {
+  width: 21em;
+  /* Oculta los botones de incremento y decremento en Chrome, Safari y Edge */
+  /* Oculta los botones de incremento y decremento en Firefox */
+}
+.carrito_content .productos {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.carrito_content img {
+  width: 30%;
+}
+.carrito_content article:not(:first-child) {
+  margin-top: 1.5em;
+}
+.carrito_content .productTitle {
+  font-size: 1em;
+  white-space: pre-wrap;
+}
+.carrito_content button {
+  font-size: 1.2em;
+}
+.carrito_content .borrarProducto {
+  margin-top: 3px;
+  position: absolute;
+  right: -0.5em;
+}
+.carrito_content .counter {
+  font-size: 0.9em;
+  width: 1.7em;
+}
+.carrito_content .counter :focus {
+  outline: none;
+}
+.carrito_content input[type=number]::-webkit-inner-spin-button,
+.carrito_content input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.carrito_content input[type=number] {
+  -moz-appearance: textfield;
+}
+.carrito_content .codigos_descuento .btn {
+  width: 2em !important;
+  height: 1.5em !important;
+  position: absolute;
+  top: 2em;
+  right: 0.8em;
+}
+.carrito_content .resumen hr {
+  margin: 0.7em 0 !important;
 }/*# sourceMappingURL=header.css.map */

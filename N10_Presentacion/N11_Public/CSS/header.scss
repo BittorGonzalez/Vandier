@@ -55,3 +55,104 @@
     }
   }
 }
+
+.login_content, .carrito_content{
+  width: 17em;
+  height: fit-content;
+  position: absolute;
+  right: -13px;
+  background-color: white;
+  
+
+  .form-control:focus{
+    outline: none !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.178) !important;
+  }
+
+  .alert-danger {
+    word-wrap: break-word;
+}
+}
+
+.login_content::before, .carrito_content::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 85%;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent white transparent; /* Define el color de la flecha (en este caso, blanco) */
+}
+
+.carrito_content{
+  width: 21em;
+
+
+  .productos{
+    max-height: 400px;
+    overflow-y: scroll;
+  }
+  img{
+    width: 30%;
+  }
+
+  article:not(:first-child){
+    margin-top: 1.5em;
+  }
+
+  .productTitle{
+    font-size: 1em;
+    white-space: pre-wrap;
+
+    }
+
+
+  button{
+    font-size: 1.2em;
+  }
+
+  .borrarProducto{
+    margin-top: 3px;
+    position: absolute;
+    right: -0.5em;
+  }
+
+
+  .counter{
+    font-size: 0.9em;
+    width: 1.7em;
+
+    :focus{
+      outline: none;
+    }
+  }
+
+
+  /* Oculta los botones de incremento y decremento en Chrome, Safari y Edge */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Oculta los botones de incremento y decremento en Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+
+  .codigos_descuento .btn{
+    width: 2em !important;
+    height: 1.5em !important;
+    position: absolute;
+    top: 2em;
+    right: 0.8em;
+  }
+  
+  .resumen hr{
+    margin: 0.7em 0 !important;
+  }
+
+
+}
+

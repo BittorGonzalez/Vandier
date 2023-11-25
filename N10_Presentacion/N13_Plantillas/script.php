@@ -7,11 +7,13 @@
 
 <script src="N10_Presentacion\N11_Public\JS\main.js"></script>
 <?php
-//INFO: DESCOMENTAR LINEAS PARA QUE APLCIOQUE JS, PERO COMO NO TODAS LAS PAGINAS VAN A TENER JS HABRIA QUE HACER UNA VALIDACION
 
-//  if (isset($URL) && $viewsControlador->esVistaPermitida($URL[0])) {
-//     echo '<script src="N10_Presentacion\N11_Public\JS\\' . $URL[0] .'.js "></script>';
-
-//     }
+if (isset($URL) && $viewsControlador->esVistaPermitida($URL[0])) {
+    $rutaJS = "N10_Presentacion\\N11_Public\\JS\\" . $URL[0] . ".js";
+    
+    if (is_file($rutaJS)) {
+        echo '<script src="' . $rutaJS . '"></script>';
+    }
+}
 
 ?>

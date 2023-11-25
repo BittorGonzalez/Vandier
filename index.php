@@ -29,8 +29,8 @@
 <?php 
 
     use N20_Negocio\N21_Controladores\viewsControlador;
-
     require_once './N10_Presentacion/N13_Plantillas/header.php';
+
 
     $viewsControlador = new viewsControlador();
 
