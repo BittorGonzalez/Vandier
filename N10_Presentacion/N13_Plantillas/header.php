@@ -65,7 +65,7 @@ require_once './N00_Config/app.php';
 
                 <div class="carrito_content  d-none flex-column  mt-3 rounded-3 border border-2">
 
-                    <div class="productos p-3">
+                    <div class="productosCarrito p-3">
                         <article class="d-flex gap-2 pb-4 border-bottom border-2 position-relative">
                             <i class="borrarProducto fa-regular fa-circle-xmark text-danger"></i>
                             <img class="rounded" src="N10_Presentacion\N14_Assets\Images\camisa_1.webp" alt="">

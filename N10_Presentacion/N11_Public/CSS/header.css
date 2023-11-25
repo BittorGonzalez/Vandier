@@ -85,7 +85,7 @@
   /* Oculta los botones de incremento y decremento en Chrome, Safari y Edge */
   /* Oculta los botones de incremento y decremento en Firefox */
 }
-.carrito_content .productos {
+.carrito_content .productosCarrito {
   max-height: 400px;
   overflow-y: scroll;
 }
