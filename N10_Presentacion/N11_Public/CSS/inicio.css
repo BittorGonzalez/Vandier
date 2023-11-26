@@ -1,29 +1,55 @@
-@charset "UTF-8";
 main {
   padding: 0px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.imagenprincipal {
+main .imagenprincipal {
   width: 99vw;
   height: 100%;
 }
-
-.cards {
+main .cards {
   display: flex;
   justify-content: center;
 }
-
-.card {
+main .cards .card {
   max-height: 100%;
   margin-top: 20px;
   background-color: black;
   margin: 10px;
 }
-
-.profile-card-2 {
+main .horizontalscrolling {
+  margin-top: 80px;
+  width: 99vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+main .horizontalscrolling .rowtext {
+  width: 100%;
+  display: flex;
+  margin-bottom: -30px;
+}
+main .horizontalscrolling .htext-container {
+  width: 200%;
+  overflow: hidden;
+}
+main .horizontalscrolling .htext-container .vandiertexto {
+  white-space: nowrap;
+  font-size: 80px;
+  font-family: San-Francisco-Semibold;
+  margin: 0;
+}
+main .horizontalscrolling .rowtext {
+  flex-shrink: 0;
+}
+main .horizontalscrolling .upper-row {
+  margin-left: -4%;
+}
+main .horizontalscrolling .lower-row {
+  margin-left: -23%;
+}
+main .profile-card-2 {
   max-width: 300px;
   background-color: black;
   border: none;
@@ -34,16 +60,16 @@ main {
   cursor: pointer;
   border-radius: 10px;
   font-size: 16px;
-  height: 400px; /* Altura máxima para la tarjeta */
+  height: 400px;
 }
-.profile-card-2 img {
+main .profile-card-2 img {
   transition: all linear 0.25s;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.profile-card-2 .profile-name {
+main .profile-card-2 .profile-name {
   position: absolute;
   left: 30px;
   bottom: 70px;
@@ -53,17 +79,17 @@ main {
   font-weight: bold;
   transition: all linear 0.25s;
 }
-.profile-card-2 .profile-icons {
+main .profile-card-2 .profile-icons {
   position: absolute;
   bottom: 30px;
   right: 30px;
   color: #fff;
   transition: all linear 0.25s;
 }
-.profile-card-2 .profile-icons .fa {
+main .profile-card-2 .profile-icons .fa {
   margin: 5px;
 }
-.profile-card-2 .profile-username {
+main .profile-card-2 .profile-username {
   position: absolute;
   bottom: 50px;
   left: 30px;
@@ -71,15 +97,64 @@ main {
   font-size: 16px;
   transition: all linear 0.25s;
 }
-.profile-card-2:hover img {
+main .profile-card-2:hover img {
   filter: grayscale(100%);
 }
-.profile-card-2:hover .profile-name {
+main .profile-card-2:hover .profile-name {
   bottom: 80px;
 }
-.profile-card-2:hover .profile-username {
+main .profile-card-2:hover .profile-username {
   bottom: 60px;
 }
-.profile-card-2:hover .profile-icons {
+main .profile-card-2:hover .profile-icons {
   right: 40px;
+}
+
+.segundafoto {
+  margin-top: 150px;
+}
+.segundafoto img {
+  width: 50vw;
+}
+
+.mosaico {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.mosaico .imagenmosaico {
+  width: 25vw;
+  margin: 10px;
+}
+.mosaico .imagenmosaico3 {
+  width: 51vw;
+  margin: 10px;
+}
+
+.bqtexto {
+  margin-top: 10vh;
+  background-color: #1f1f1f;
+  border: solid 1px rgb(90, 90, 90);
+  border-radius: 50px;
+  width: 65vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bqtexto .bloquedetexto {
+  width: 100%;
+}
+.bqtexto p {
+  font-size: 70px;
+  font-family: San-Francisco-Semibold;
+}
+.bqtexto p:first-child {
+  margin-left: 5%;
+}
+.bqtexto p:nth-child(2) {
+  float: right;
+  margin-right: 5%;
 }/*# sourceMappingURL=inicio.css.map */

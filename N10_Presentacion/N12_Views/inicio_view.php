@@ -38,5 +38,32 @@
         </section>
     </div>
 
+    <div class="horizontalscrolling">
+        <div class="rowtext htext-container upper-row">
+            <p class="vandiertexto">VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
+                VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+        </div>
+        <div class="rowtext htext-container lower-row">
+            <p class="vandiertexto">VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
+                VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+        </div>
+    </div>
+
+    <!-- <section class="segundafoto">
+        <img class="segundaimagen" src="N10_Presentacion\N14_Assets\Images\deco_4(resol).jpg" alt="">
+    </section> -->
+
+    <section class="mosaico">
+        <img class="imagenmosaico" src="N10_Presentacion\N14_Assets\Images\deco_2.webp" alt="">
+        <img class="imagenmosaico" src="N10_Presentacion\N14_Assets\Images\deco_1.webp" alt=""><br>
+        <img class="imagenmosaico3" src="N10_Presentacion\N14_Assets\Images\deco_8 (resol).webp" alt="">
+    </section>
+
+    <section class="bqtexto">
+        <div class="bloquedetexto">
+            <p>HAVE YOUR OWN STYLE</p>
+            <p>WEAR THE BEST DESIGNS</p>
+        </div>
+    </section>
 
 </main>
