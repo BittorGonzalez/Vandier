@@ -206,7 +206,7 @@ function cargarFormularioDinamico(usuarioLogueado) {
     itemOpcion1.classList.add("border-bottom", "pb-2");
 
     const itemLink1 = document.createElement("a");
-    itemLink1.setAttribute("href", "");
+    itemLink1.setAttribute("href", "http://localhost/perfil");
     itemLink1.classList.add("fw-bold");
     itemLink1.textContent = "Perfil";
 
