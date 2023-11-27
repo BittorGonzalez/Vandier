@@ -3,93 +3,188 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.imagenprincipal {
-  width: 100%;
-  height: 100%;
-}
 
-.cards {
-  display: flex;
-  justify-content: center;
-}
-
-.card {
-  max-height: 100%;
-  margin-top: 20px;
-  background-color: black;
-  margin: 10px;
-}
-
-// ----------CARD-----------
-.profile-card-2 {
-  max-width: 300px;
-  background-color: black;
-  border: none;
-  outline: none;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 16px;
-  height: 400px; /* Altura máxima para la tarjeta */
-
-  img {
-    transition: all linear 0.25s;
-    width: 100%;
+  .imagenprincipal {
+    width: 99vw;
     height: 100%;
-    object-fit: cover;
   }
 
-  .profile-name {
-    position: absolute;
-    left: 30px;
-    bottom: 70px;
-    font-size: 30px;
-    color: #fff;
-    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-    font-weight: bold;
-    transition: all linear 0.25s;
-  }
+  .cards {
+    display: flex;
+    justify-content: center;
 
-  .profile-icons {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    color: #fff;
-    transition: all linear 0.25s;
-
-    .fa {
-      margin: 5px;
+    .card {
+      max-height: 100%;
+      margin-top: 20px;
+      background-color: black;
+      margin: 10px;
     }
   }
 
-  .profile-username {
-    position: absolute;
-    bottom: 50px;
-    left: 30px;
-    color: #fff;
-    font-size: 16px;
-    transition: all linear 0.25s;
+  // ----------LETRAS HORIZONTALES-----------
+  .horizontalscrolling {
+    margin-top: 80px;
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .rowtext {
+      width: 100%;
+      display: flex;
+      margin-bottom: -30px;
+    }
+
+    .htext-container {
+      width: 200%;
+      overflow: hidden;
+
+      .vandiertexto {
+        white-space: nowrap;
+        font-size: 80px;
+        font-family: San-Francisco-Semibold;
+        margin: 0;
+      }
+    }
+
+    & .rowtext {
+      flex-shrink: 0;
+    }
+
+    .upper-row {
+      margin-left: -4%;
+    }
+
+    .lower-row {
+      margin-left: -23%;
+    }
   }
 
-  &:hover {
+  // ----------CARD-----------
+  .profile-card-2 {
+    max-width: 300px;
+    background-color: black;
+    border: none;
+    outline: none;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    height: 400px; // Altura máxima para la tarjeta
+
     img {
-      filter: grayscale(100%);
+      transition: all linear 0.25s;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .profile-name {
-      bottom: 80px;
-    }
-
-    .profile-username {
-      bottom: 60px;
+      position: absolute;
+      left: 30px;
+      bottom: 70px;
+      font-size: 30px;
+      color: #fff;
+      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      transition: all linear 0.25s;
     }
 
     .profile-icons {
-      right: 40px;
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      color: #fff;
+      transition: all linear 0.25s;
+
+      .fa {
+        margin: 5px;
+      }
     }
+
+    .profile-username {
+      position: absolute;
+      bottom: 50px;
+      left: 30px;
+      color: #fff;
+      font-size: 16px;
+      transition: all linear 0.25s;
+    }
+
+    &:hover {
+      img {
+        filter: grayscale(100%);
+      }
+
+      .profile-name {
+        bottom: 80px;
+      }
+
+      .profile-username {
+        bottom: 60px;
+      }
+
+      .profile-icons {
+        right: 40px;
+      }
+    }
+  }
+}
+
+.segundafoto {
+  margin-top: 150px;
+
+  img {
+    width: 50vw;
+  }
+}
+
+.mosaico {
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  .imagenmosaico {
+    width: 25vw;
+    margin: 10px;
+  }
+
+  .imagenmosaico3 {
+    width: 51vw;
+    margin: 10px;
+  }
+}
+
+.bqtexto {
+  margin-top: 10vh;
+  background-color: #1f1f1f;
+  border: solid 1px rgb(90, 90, 90);
+  border-radius: 50px;
+  width: 65vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .bloquedetexto{
+    width: 100%;
+  }
+  p {
+
+    font-size: 70px;
+    font-family: San-Francisco-Semibold;
+  }
+
+  p:first-child {
+    margin-left: 5%;
+  }
+
+  p:nth-child(2) {
+    float: right;
+    margin-right: 5%;
   }
 }
