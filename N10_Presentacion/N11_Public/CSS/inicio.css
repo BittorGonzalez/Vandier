@@ -1,8 +1,10 @@
+@charset "UTF-8";
 main {
   padding: 0px !important;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
 }
 main .imagenprincipal {
   width: 99vw;
@@ -18,36 +20,57 @@ main .cards .card {
   background-color: black;
   margin: 10px;
 }
-main .horizontalscrolling {
-  margin-top: 80px;
-  width: 99vw;
+main .containerletras {
+  padding: 0;
+  height: 200px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 100vw;
   overflow: hidden;
 }
-main .horizontalscrolling .rowtext {
-  width: 100%;
-  display: flex;
-  margin-bottom: -30px;
+main .scroll {
+  white-space: nowrap;
+  margin: 0 2em;
 }
-main .horizontalscrolling .htext-container {
-  width: 200%;
-  overflow: hidden;
-}
-main .horizontalscrolling .htext-container .vandiertexto {
+main .scroll p {
   white-space: nowrap;
   font-size: 80px;
   font-family: San-Francisco-Semibold;
   margin: 0;
 }
-main .horizontalscrolling .rowtext {
-  flex-shrink: 0;
+main .scroll div {
+  display: flex;
+  gap: 2em;
 }
-main .horizontalscrolling .upper-row {
-  margin-left: -4%;
+main .scroll p {
+  font-size: 5em;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 0;
+  line-height: 10px;
 }
-main .horizontalscrolling .lower-row {
-  margin-left: -23%;
+main .RightToLeft {
+  margin-bottom: 60px;
+  animation: RightToLeft 10s infinite linear;
+}
+@keyframes RightToLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-15%);
+  }
+}
+main .LeftToRight {
+  animation: LeftToRight 10s infinite linear;
+}
+@keyframes LeftToRight {
+  from {
+    transform: translateX(-15%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 main .profile-card-2 {
   max-width: 300px;
@@ -61,6 +84,32 @@ main .profile-card-2 {
   border-radius: 10px;
   font-size: 16px;
   height: 400px;
+}
+main .profile-card-2 .profile-botoncarrito {
+  background-color: rgb(255, 255, 255);
+  border-radius: 30%; /* Para crear un círculo perfecto */
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  bottom: 5%;
+  right: 30px;
+  color: #000000;
+  transition: all linear 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: San-Francisco-Semibold;
+  font-size: 20px;
+  line-height: 1; /* Ajusta line-height */
+  box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.75);
+}
+main .profile-card-2 .profile-botoncarrito:hover {
+  font-weight: bold;
+  align-items: center;
+  font-family: San-Francisco-Light;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transition: 0.3s;
 }
 main .profile-card-2 img {
   transition: all linear 0.25s;

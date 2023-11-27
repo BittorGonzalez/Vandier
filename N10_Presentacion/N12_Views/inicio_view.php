@@ -12,6 +12,7 @@
                     <img src="N10_Presentacion\N14_Assets\Images\reloj_1.webp" class="img img-responsive">
                     <div class="profile-name">Vandier Titanium</div>
                     <div class="profile-username">334,99€</div>
+                    <div class="profile-botoncarrito">+</div>
                 </div>
             </div>
             <div class="col d-flex align-items-center justify-content-center">
@@ -38,14 +39,18 @@
         </section>
     </div>
 
-    <div class="horizontalscrolling">
-        <div class="rowtext htext-container upper-row">
-            <p class="vandiertexto">VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
-                VANDIER VANDIER VANDIER VANDIER VANDIER</p>
-        </div>
-        <div class="rowtext htext-container lower-row">
-            <p class="vandiertexto">VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
-                VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+    <!-- SCROLL LETRAS HORIZONTALES -->
+
+    <div class="containerletras">
+        <div class="scroll">
+            <div class="RightToLeft">
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+            </div>
+            <div class="LeftToRight">
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+            </div>
         </div>
     </div>
 
