@@ -70,7 +70,8 @@
   }
 
   .alert-danger {
-    word-wrap: break-word;
+    white-space: pre-wrap;
+    height: 10em;
 }
 }
 
@@ -87,6 +88,9 @@
 .carrito_content{
   width: 21em;
 
+  .iconoError{
+    font-size: 5em;
+  }
 
   .productosCarrito{
     max-height: 400px;
@@ -137,7 +141,7 @@
 
   /* Oculta los botones de incremento y decremento en Firefox */
   input[type="number"] {
-    -moz-appearance: textfield;
+    appearance: textfield;
   }
 
 

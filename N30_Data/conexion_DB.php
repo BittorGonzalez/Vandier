@@ -1,20 +1,22 @@
 <?php
 
-require_once '../N00_Config/bd.php';
+namespace N30_Data;
+use PDO, PDOException;
+require_once '../../N00_Config/bd.php';
 
 class conexion_DB
 {
-    private $server = $DB_HOST;
-    private $dbname = $DB_NAME;
-    private $user = $DB_USER;
-    private $passw = $DB_PASS;
+    private $server = DB_HOST;
+    private $dbname = DB_NAME;
+    private $user = DB_USER;
+    private $passw = DB_PASS;
 
 
     protected function conectar()
     {
 
         try {
-            $conexion = new PDO("mysqli:host=$this->server; dbname=$this->dbname", $this->user, $this->passw);
+            $conexion = new PDO("mysql:host=$this->server; dbname=$this->dbname", $this->user, $this->passw);
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conexion;
 
@@ -23,29 +25,8 @@ class conexion_DB
         }
     }
 
-
-    protected function consultar(array $campos, $tabla, array $condiciones = []){
-        $consulta = "SELECT " . implode(", ", $campos) . " FROM $tabla";
-
-        if (!empty($condiciones)) {
-            $where = " WHERE ";
-            $condicionesWhere = [];
-
-            foreach ($condiciones as $campo => $valor) {
-                $condicionesWhere[] = "$campo = :$campo";
-            }
-
-            $consulta .= $where . implode(" AND ", $condicionesWhere);
-        }
-
-        $sql = $this->conectar()->prepare($consulta);
-
-        foreach ($condiciones as $campo => $valor) {
-            $sql->bindValue(":$campo", $valor);
-        }
-
-        $sql->execute();
-
+    protected function consultar($sentencia){
+        $sql = $this->conectar()->prepare($sentencia);
         return $sql;
     }
 

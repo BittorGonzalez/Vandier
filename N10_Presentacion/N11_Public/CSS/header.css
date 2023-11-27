@@ -67,7 +67,8 @@
   box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.178) !important;
 }
 .login_content .alert-danger, .carrito_content .alert-danger {
-  word-wrap: break-word;
+  white-space: pre-wrap;
+  height: 10em;
 }
 
 .login_content::before, .carrito_content::before {
@@ -84,6 +85,9 @@
   width: 21em;
   /* Oculta los botones de incremento y decremento en Chrome, Safari y Edge */
   /* Oculta los botones de incremento y decremento en Firefox */
+}
+.carrito_content .iconoError {
+  font-size: 5em;
 }
 .carrito_content .productosCarrito {
   max-height: 400px;
@@ -120,7 +124,9 @@
   margin: 0;
 }
 .carrito_content input[type=number] {
-  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 .carrito_content .codigos_descuento .btn {
   width: 2em !important;
