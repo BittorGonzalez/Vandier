@@ -2,7 +2,8 @@
 
 
 //Crear instancia de la clase carritoManager
-const objCarritoManagerMain = new carritoManager()
+const objCarritoManagerMain = new carritoManager();
+
 
 //Al cargar la pagina obtener informacion del logueo
 window.onload = cargarEstadoLogin();
@@ -89,13 +90,12 @@ function obtenerDatosLogin() {
 //--------------------------- CARRITO-------------------------------
 //Elementos del DOM
 const iconoCarrito = document.querySelector(".iconoCarrito");
+const contadorCarrito = document.querySelector(".contadorCarrito")
 const divCarrito = document.querySelector(".carrito_content");
 const contenerCarrito = iconoCarrito.closest("li");
 const btnIncrementa = document.querySelector(".btnIncrementa");
 const btnDecrementa = document.querySelector(".btnDecrementa");
-const btnIniciarSesionCarrito = document.querySelector(
-  ".btn_iniciarSesionCarrito"
-);
+const btnIniciarSesionCarrito = document.querySelector(".btn_iniciarSesionCarrito");
 
 //Gestion del DOM
 contenerCarrito.addEventListener("mouseover", () => {
@@ -137,11 +137,15 @@ function cargarFormularioDinamico(usuarioLogueado) {
 
     cargarFormularioPerfil(datosUsuario)
     cargarFormularioCarrito()
+    contadorCarrito.classList.remove("d-none");
+    contadorCarrito.textContent = objCarritoManagerMain.mostrarNumProductosCarrito()
+
 
   } else {
     //Reajustar estilos del contenedor
     divCarrito.style.width = "17em";
     divCarrito.classList.add("p-3");
+    contadorCarrito.classList.add("d-none");
   }
 }
 

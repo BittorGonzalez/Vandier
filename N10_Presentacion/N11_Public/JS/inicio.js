@@ -24,12 +24,3 @@ function pintarCardsContenedor(card) {
   const container = document.querySelector(".containerProductos");
   container.appendChild(card);
 }
-
-
-//Pintar cards en el contenedor
-function pintarCardsContenedor(card){
-    const container = document.querySelector(".containerProductos");
-
-    container.appendChild(card);
-
-}

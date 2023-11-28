@@ -4,12 +4,25 @@ class carritoManager {
     this.divProductosCarrito = document.querySelector(".productosCarrito");
   }
   //Metodo para crear articulo y añadirlo al elemento carrito
-  añadirProductoAlCarrito(
-    divProductosCarrito,
-    nombreProducto,
-    imagenSrc,
-    precioProducto
-  ) {
+  añadirProductoAlCarrito(idProducto) {
+
+    fetch("../N20_Negocio/N21_Controladores/productosControlador.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    
+      // Seleccionar el numero de registros que queremos recibir [0, para recibir todos los productos]
+      body: JSON.stringify({ id: idProducto }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => console.error("Error:", error));
+
+    const divProductosCarrito = document.querySelector(".productosCarrito");
+
     const divArticulo = document.createElement("article");
     divArticulo.classList.add(
       "d-flex",
@@ -126,12 +139,13 @@ class carritoManager {
     );
 
     card.style.backgroundImage =
-      "url(N10_Presentacion/N14_Assets/Images/" + datos['imagen'] +")";
+      "url(N10_Presentacion/N14_Assets/Images/" + datos['imagen'] + ")";
     card.style.backgroundSize = "cover";
     card.style.backgroundPosition = "center center";
 
 
     card.setAttribute("data-id", datos["id"]);
+    card.setAttribute('data-category', ["categoria"])
 
     const contenido = document.createElement("div");
     contenido.classList.add(
@@ -186,7 +200,12 @@ class carritoManager {
     btnCarrito.textContent = "+";
 
     btnCarrito.addEventListener("click", (e) => {
-      this.prueba(e);
+
+      
+
+      let idProducto = e.target.parentNode.parentNode.parentNode.getAttribute('data-id')
+      this.añadirProductoAlCarrito(idProducto)
+
     });
 
     const btnFav = document.createElement("button");
@@ -208,23 +227,29 @@ class carritoManager {
 
     card.appendChild(contenido);
 
-    return card;
+    const col = document.createElement('div')
+    col.classList.add('col')
+    col.appendChild(card)
+
+    return col;
   }
 
-  prueba(e) {
-    let elem = e.target;
+  //Calcular el numero de articulos que existen en el carrito y retornar
+  mostrarNumProductosCarrito() {
+    const divProductosCarrito = document.querySelector(".productosCarrito");
+    
+    let articulos = divProductosCarrito.querySelectorAll('article')
+    let numArticulos = articulos.length
 
-    // Accede al padre (padre del botón)
-    let padre = elem.parentNode;
+    return numArticulos;
+  }
 
-    // Accede al abuelo (padre del padre)
-    let abuelo = padre.parentNode;
+  //Obtener info articulo clickado
+  obtenerinfoProducto(e){
+    console.log(idProducto)
+  }
 
-    let bisaabuelo = abuelo.parentNode;
-
-
-    console.log(bisaabuelo.getAttribute('data-id'));
-
-    // Ahora puedes realizar acciones en el abuelo
 }
-}
+
+
+

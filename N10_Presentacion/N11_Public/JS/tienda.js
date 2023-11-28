@@ -13,24 +13,17 @@ fetch("../N20_Negocio/N21_Controladores/productosControlador.php", {
   .then((response) => response.json())
   .then((data) => {
     data.forEach((producto) => {
-        console.log(producto)
-    //   const tarjeta = objCarritoManagerInicio.crearCardProducto(producto);
-    //   pintarCardsContenedor(tarjeta);
+        
+    const tarjeta = objCarritoManagerInicio.crearCardProducto(producto);
+    pintarCardsContenedor(tarjeta);
     });
   })
   .catch((error) => console.error("Error:", error));
 
-// Pintar cards en el contenedor
-function pintarCardsContenedor(card) {
-  const container = document.querySelector(".containerProductos");
-  container.appendChild(card);
-}
-
-
 //Pintar cards en el contenedor
 function pintarCardsContenedor(card){
-    const container = document.querySelector(".containerProductos");
-
-    container.appendChild(card);
+    const gridProductos = document.querySelector(".gridProductos");
+    const productos = gridProductos.querySelector(".productos")
+    productos.appendChild(card);
 
 }

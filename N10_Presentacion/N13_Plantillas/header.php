@@ -67,6 +67,8 @@ session_start();
             <li class="position-relative">
                 <i class="iconoCarrito fa-solid fa-basket-shopping fa-lg h-100 p-2"></i>
 
+                <span class="contadorCarrito bg-danger">0</span>
+
                 <div class="carrito_content  d-none flex-column align-items-center mt-3 rounded-3 border border-2">
 
                     <i class="iconoError fa-solid fa-xmark text-danger"></i>

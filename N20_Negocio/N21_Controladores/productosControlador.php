@@ -12,7 +12,10 @@ class productosControlador extends productosModelo{
 
    
 
-    public function obtenerProductos($limite){
+    public function obtenerProductos(){
+
+        $postData = json_decode(file_get_contents("php://input"), true);
+        $limite = isset($postData['limite']) ? (int)$postData['limite'] : null;
 
         $datos = $this->consultarProductos($limite);
 
@@ -27,16 +30,32 @@ class productosControlador extends productosModelo{
 
     }
 
+    public function obtenerProductoPorId(){
+
+        $id = json_decode(file_get_contents('php://input'), true);
+
+        $datos = $this->obtenerProductoPorCodReferencia($id);
+
+        if($datos){
+            $response = $datos;
+        }else{
+            $response = ['Mensaje'=>'No se han encontrado usuarios'];
+
+        }
+
+        echo json_encode($response);
+    }
+
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $postData = json_decode(file_get_contents("php://input"), true);
-    $limite = isset($postData['limite']) ? (int)$postData['limite'] : null;
-
     $productoControl = new productosControlador();
-    $productoControl->obtenerProductos($limite);
+    $productoControl->obtenerProductos();
+
+}else if ($_SERVER["REQUEST_METHOD"] == "GET"){
+    $productoControl = new productosControlador();
+    $productoControl->obtenerProductoPorId();
 }
 
 

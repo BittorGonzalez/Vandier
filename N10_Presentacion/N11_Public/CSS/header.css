@@ -140,4 +140,18 @@
 }
 .carrito_content .resumen hr {
   margin: 0.7em 0 !important;
+}
+
+.contadorCarrito {
+  top: -5px;
+  right: -7px;
+  color: white;
+  border-radius: 50%;
+  height: 1.5em;
+  width: 1.5em;
+  font-size: 12px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=header.css.map */
