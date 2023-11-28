@@ -51,7 +51,7 @@ main .scroll p {
 }
 main .RightToLeft {
   margin-bottom: 60px;
-  animation: RightToLeft 10s infinite linear;
+  animation: RightToLeft 30s infinite linear;
 }
 @keyframes RightToLeft {
   from {
@@ -62,7 +62,7 @@ main .RightToLeft {
   }
 }
 main .LeftToRight {
-  animation: LeftToRight 10s infinite linear;
+  animation: LeftToRight 30s infinite linear;
 }
 @keyframes LeftToRight {
   from {
@@ -128,7 +128,7 @@ main .bqtexto p:nth-child(2) {
 }
 
 .hit-the-floor {
-  font-size: 14em;
+  font-size: 15vw;
   letter-spacing: 0.1em;
   font-family: "San-Francisco-Semibold";
   position: absolute;

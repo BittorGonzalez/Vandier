@@ -5,8 +5,6 @@
     </section>
 
     <section class="container containerProductos d-flex justify-content-center gap-4">
-
-        
     </section>
 
     <!-- SCROLL LETRAS HORIZONTALES -->
@@ -14,12 +12,16 @@
     <div class="containerletras">
         <div class="scroll">
             <div class="RightToLeft">
-                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
-                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
+                    VANDIER VANDIER VANDIER</p>
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
+                    VANDIER VANDIER VANDIER</p>
             </div>
             <div class="LeftToRight">
-                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
-                <p>VANDIER VANDIER VANDIER VANDIER VANDIER</p>
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
+                    VANDIER VANDIER VANDIER</p>
+                <p>VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER VANDIER
+                    VANDIER VANDIER VANDIER</p>
             </div>
         </div>
     </div>

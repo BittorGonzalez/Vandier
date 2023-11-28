@@ -60,7 +60,7 @@ main {
 
   .RightToLeft {
     margin-bottom: 60px;
-    animation: RightToLeft 10s infinite linear;
+    animation: RightToLeft 30s infinite linear;
   }
 
   @keyframes RightToLeft {
@@ -73,7 +73,7 @@ main {
   }
 
   .LeftToRight {
-    animation: LeftToRight 10s infinite linear;
+    animation: LeftToRight 30s infinite linear;
   }
 
   @keyframes LeftToRight {
@@ -154,7 +154,7 @@ main {
 }
 
 .hit-the-floor {
-  font-size: 14em;
+  font-size: 15vw;
   letter-spacing: 0.1em;
   font-family: "San-Francisco-Semibold";
   position: absolute;
@@ -162,13 +162,10 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.448), 0 0 5px rgba(0, 0, 0, 0.453), 0 1px 3px rgba(0, 0, 0, 0.607), 0 3px 5px rgba(0, 0, 0, 0.508), 0 5px 10px rgba(0, 0, 0, 0.607), 0 10px 10px rgba(0, 0, 0, 0.486), 0 20px 20px rgba(0, 0, 0, 0.574);
-  }
-  
-
-
-
-
-  //////
-
-  
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.448), 0 0 5px rgba(0, 0, 0, 0.453),
+    0 1px 3px rgba(0, 0, 0, 0.607), 0 3px 5px rgba(0, 0, 0, 0.508),
+    0 5px 10px rgba(0, 0, 0, 0.607), 0 10px 10px rgba(0, 0, 0, 0.486),
+    0 20px 20px rgba(0, 0, 0, 0.574);
+}
+//////
