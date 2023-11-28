@@ -1,4 +1,4 @@
-@import url("./cards.scss");
+@import url("./cards.css");
 main {
   padding: 0px !important;
   display: flex;
@@ -121,4 +121,20 @@ main .bqtexto p:first-child {
 main .bqtexto p:nth-child(2) {
   float: right;
   margin-right: 5%;
+}
+
+.fotoinicio {
+  position: relative;
+}
+
+.hit-the-floor {
+  font-size: 14em;
+  letter-spacing: 0.1em;
+  font-family: "San-Francisco-Semibold";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.448), 0 0 5px rgba(0, 0, 0, 0.453), 0 1px 3px rgba(0, 0, 0, 0.607), 0 3px 5px rgba(0, 0, 0, 0.508), 0 5px 10px rgba(0, 0, 0, 0.607), 0 10px 10px rgba(0, 0, 0, 0.486), 0 20px 20px rgba(0, 0, 0, 0.574);
 }/*# sourceMappingURL=inicio.css.map */

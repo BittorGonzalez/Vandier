@@ -1,6 +1,7 @@
 <main>
     <section class="fotoinicio">
         <img class="imagenprincipal" src="N10_Presentacion\N14_Assets\Images\fotoprincipal.jpg" alt="">
+        <div class="hit-the-floor">VANDIER</div>
     </section>
 
     <section class="container containerProductos d-flex justify-content-center gap-4">
