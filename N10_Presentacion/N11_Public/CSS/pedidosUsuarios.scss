@@ -3,9 +3,35 @@
 h1{
     color: #ffffff;
     padding: 15px 0px 0px 15px;
+    
 }
 
+.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        height: 12rem;
+        width: 12rem;
+    }
+}
 
 .container-fluid{
-    background-color: black;
+    background: #000000;
+}
+
+.card {
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 15px; /* Ajusta el radio según tus preferencias */
+    box-shadow: 0 0 10px rgb(100, 100, 100); /* Ajusta la sombra según tus preferencias */
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.01); /* Ajusta la escala según tus preferencias */
+}
+
+h5, p{
+    text-align: center;
 }

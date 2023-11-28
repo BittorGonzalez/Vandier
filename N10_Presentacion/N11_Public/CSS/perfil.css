@@ -1,5 +1,5 @@
 body {
-  background: -webkit-linear-gradient(left, #060513, #3a3d3d);
+  background: -webkit-linear-gradient(left, #000000, #2e2e2e);
 }
 
 .emp-profile {
@@ -43,6 +43,10 @@ body {
   top: 0;
 }
 
+.input-text:hover {
+  background-color: #c9c9c9 !important;
+}
+
 .profile-head h5 {
   color: #333;
 }
@@ -52,12 +56,10 @@ body {
 }
 
 .profile-edit-btn {
-  border: none;
   border-radius: 1.5rem;
   width: 70%;
   padding: 2%;
   font-weight: 600;
-  color: #6c757d;
   cursor: pointer;
 }
 

@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Guardar" />
+                <input type="submit" class="profile-edit-btn btn btn-outline-dark" name="btnAddMore" value="Guardar" />
             </div>
         </div>
         <div class="row">
@@ -36,7 +36,7 @@
                                 <label>Usuario</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" value ="<?php  $user  ?>">
+                                <input type="text" class="input-text" value ="<?php  $user  ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -44,7 +44,7 @@
                                 <label>Nombre</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" value ="<?php  $nombre . " " . $apellido  ?>">
+                                <input type="text" class="input-text" value ="<?php  $nombre . " " . $apellido  ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -52,7 +52,7 @@
                                 <label>Email</label>
                             </div>
                             <div class="col-md-6">
-                                <input type="text" value ="<?php  $email  ?>">
+                                <input type="text" class="input-text" value ="<?php  $email  ?>">
                             </div>
                         </div>
                         <div class="row">
@@ -60,7 +60,7 @@
                                 <label>Telefono</label>
                             </div>
                             <div class="col-md-6">
-                            <input type="text" value ="655 555 555">
+                            <input type="text" class="input-text" value ="655 555 555">
                             </div>
                         </div>
                         <div class="row">
@@ -68,7 +68,7 @@
                                 <label>Fecha de Registro</label>
                             </div>
                             <div class="col-md-6">
-                            <input type="text" value ="<?php  $fechaRegistro  ?>">
+                            <input type="text" class="input-text" value ="<?php  $fechaRegistro  ?>">
                             </div>
                         </div>
                     </div>

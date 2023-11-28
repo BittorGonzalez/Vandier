@@ -6,8 +6,8 @@
             <div class="col-md-8 col-lg-6 col-xl-8">
                 <div class="card mt-5">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="imagen_del_producto.jpg" class="img-fluid" alt="Imagen del Producto">
+                        <div class="col-md-4 img">
+                            <img src="" class="img-fluid" alt="Imagen del Producto">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -31,8 +31,8 @@
             <div class="col-md-8 col-lg-6 col-xl-8">
                 <div class="card mt-5">
                     <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="imagen_del_producto.jpg" class="img-fluid" alt="Imagen del Producto">
+                    <div class="col-md-4 img">
+                            <img src="" class="img-fluid" alt="Imagen del Producto">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
