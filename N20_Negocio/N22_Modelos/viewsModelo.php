@@ -8,7 +8,7 @@
         
         //Se valida el nombre de la vista que se pasa como parametro en la URL y si no existe se saca un 404.
         public function esVistaPermitida($vista) {
-            $whitelist = ["dashboard", "inicio", "login", "registro","tienda", "contacto", "perfil", "carrito", "productos", "pedidos", "usuarios", "descuentos"];
+            $whitelist = ["dashboard", "inicio", "login", "registro","tienda", "contacto", "perfil", "carrito", "productos", "pedidos", "pedidosUsuarios", "usuarios", "descuentos"];
             return in_array($vista, $whitelist);
         }
     
