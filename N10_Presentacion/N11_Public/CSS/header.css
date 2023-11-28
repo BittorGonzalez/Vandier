@@ -1,4 +1,5 @@
 .navbar {
+  transition: background-color 0.5s ease, height 0.5s ease;
   background-color: #f8f9fa;
   display: flex;
   position: sticky;
@@ -54,7 +55,8 @@
   color: #000;
 }
 
-.login_content, .carrito_content {
+.login_content,
+.carrito_content {
   width: 17em;
   height: -moz-fit-content;
   height: fit-content;
@@ -62,16 +64,19 @@
   right: -13px;
   background-color: white;
 }
-.login_content .form-control:focus, .carrito_content .form-control:focus {
+.login_content .form-control:focus,
+.carrito_content .form-control:focus {
   outline: none !important;
   box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.178) !important;
 }
-.login_content .alert-danger, .carrito_content .alert-danger {
+.login_content .alert-danger,
+.carrito_content .alert-danger {
   white-space: pre-wrap;
   height: 10em;
 }
 
-.login_content::before, .carrito_content::before {
+.login_content::before,
+.carrito_content::before {
   content: "";
   position: absolute;
   top: -30px;
@@ -83,14 +88,12 @@
 
 .carrito_content {
   width: 21em;
-  /* Oculta los botones de incremento y decremento en Chrome, Safari y Edge */
-  /* Oculta los botones de incremento y decremento en Firefox */
 }
 .carrito_content .iconoError {
   font-size: 5em;
 }
 .carrito_content .productosCarrito {
-  max-height: 400px;
+  max-height: 280px;
   overflow-y: scroll;
 }
 .carrito_content img {
@@ -115,7 +118,7 @@
   font-size: 0.9em;
   width: 1.7em;
 }
-.carrito_content .counter :focus {
+.carrito_content .counter:focus {
   outline: none;
 }
 .carrito_content input[type=number]::-webkit-inner-spin-button,
