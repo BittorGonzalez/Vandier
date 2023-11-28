@@ -5,11 +5,9 @@ require_once './N00_Config/app.php';
 session_start();
 
 
-
-
 ?>
 
-<header class="navbar">
+<header class="navbar" id="myNavbar">
     <!-- ENLACES -->
     <div class="dlinks">
         <ul>
@@ -27,11 +25,9 @@ session_start();
 
     <!-- LOGO -->
     <div class="dlogo">
-        <a class="" href="#"><img class="logonavbar" src="N10_Presentacion\N14_Assets\Images\logotexto.png"
-                alt="Logo"></a>
+        <a class="" href="<?php echo APP_URL ?>"><img class="logonavbar"
+                src="N10_Presentacion\N14_Assets\Images\logotexto.png" alt="Logo"></a>
     </div>
-
-
 
     <!-- ICONOS -->
     <div class="diconos">
@@ -75,7 +71,8 @@ session_start();
 
                     <i class="iconoError fa-solid fa-xmark text-danger"></i>
                     <h2 class="mt-2 fw-bold fs-4">No estas logueado</h2>
-                    <button type="button" class="btn_iniciarSesionCarrito btn btn-dark text-white fw-bold mt-4">Iniciar sesion</button>        
+                    <button type="button" class="btn_iniciarSesionCarrito btn btn-dark text-white fw-bold mt-4">Iniciar
+                        sesion</button>
                 </div>
 
             </li>
@@ -87,3 +84,22 @@ session_start();
     </div>
 
 </header>
+
+<script>
+    window.addEventListener('scroll', function () {
+        let navbar = document.getElementById('myNavbar');
+
+        // Altura a la que el cambio de estilos se activará
+        let scrollThreshold = 100;
+
+        if (window.scrollY > scrollThreshold) {
+            // Si el desplazamiento vertical es mayor que la altura de scrollThreshold
+            navbar.style.backgroundColor = 'rgba(248, 249, 250, 0.9)'; // Fondo transparente gradual
+            navbar.style.height = '70px'; // Altura aumentada gradual
+        } else {
+            // Si el desplazamiento es menor que scrollThreshold
+            navbar.style.backgroundColor = '#f8f9fa'; // Restaura el color de fondo original
+            navbar.style.height = 'fit-content'; // Restaura la altura original
+        }
+    });
+</script>

@@ -10,9 +10,11 @@ use N20_Negocio\N22_Modelos\productosModelo;
 
 class productosControlador extends productosModelo{
 
-    public function recuperarTodosProductos(){
+   
 
-        $datos = $this->obtenerProductosAll();
+    public function obtenerProductos($limite){
+
+        $datos = $this->consultarProductos($limite);
 
         if($datos){
             
@@ -28,9 +30,13 @@ class productosControlador extends productosModelo{
 }
 
 
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    $postData = json_decode(file_get_contents("php://input"), true);
+    $limite = isset($postData['limite']) ? (int)$postData['limite'] : null;
+
     $productoControl = new productosControlador();
-    $productoControl->recuperarTodosProductos();
+    $productoControl->obtenerProductos($limite);
 }
 
 

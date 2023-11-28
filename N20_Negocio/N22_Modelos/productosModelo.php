@@ -6,16 +6,20 @@ use PDO;
 
 class productosModelo extends conexion_DB {
 
-    public function obtenerProductosAll(){
-        $sql = $this->consultar("SELECT * FROM producto");
-
+    public function consultarProductos($limite) {
+        
+        if (is_numeric($limite) && $limite > 0) {
+            $sql = $this->consultar("SELECT * FROM producto LIMIT " . $limite);
+        } else {
+            $sql = $this->consultar("SELECT * FROM producto");
+        }
+    
         $sql->execute();
-
+    
         $resultados = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+    
         return $resultados;
     }
-
 
     public function obtenerProductoPorCodReferencia($codReferencia){
         $sql = $this->consultar("SELECT * FROM producto WHERE codReferencia= :codReferencia");

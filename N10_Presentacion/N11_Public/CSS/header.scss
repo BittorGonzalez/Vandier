@@ -1,4 +1,6 @@
 .navbar {
+  transition: background-color 0.5s ease, height 0.5s ease;
+  // Estilos del navbar principal
   background-color: #f8f9fa;
   display: flex;
   position: sticky;
@@ -8,16 +10,20 @@
   z-index: 10;
 
   .dlinks {
+    // Estilos para los enlaces
     width: 300px;
     margin-right: auto;
+
     ul {
       padding: 0;
       list-style: none;
       white-space: nowrap;
+
       li {
         display: inline-block;
         margin-left: 20px;
         margin-right: 20px;
+
         a {
           text-decoration: none;
           color: #000;
@@ -27,26 +33,32 @@
   }
 
   .dlogo {
+    // Estilos para el logo
     margin-top: auto;
     margin-bottom: auto;
+
     img {
       width: 100px;
     }
   }
 
   .diconos {
+    // Estilos para los iconos
     width: 300px;
     margin-left: auto;
     display: flex;
     flex-direction: row-reverse;
+
     ul {
       padding: 0;
       list-style: none;
       white-space: nowrap;
+
       li {
         display: inline-block;
         margin-left: 15px;
         margin-right: 15px;
+
         a {
           text-decoration: none;
           color: #000;
@@ -56,15 +68,16 @@
   }
 }
 
-.login_content, .carrito_content{
+// Estilos para el contenido de inicio de sesión y carrito
+.login_content,
+.carrito_content {
   width: 17em;
   height: fit-content;
   position: absolute;
   right: -13px;
   background-color: white;
-  
 
-  .form-control:focus{
+  .form-control:focus {
     outline: none !important;
     box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.178) !important;
   }
@@ -72,11 +85,13 @@
   .alert-danger {
     white-space: pre-wrap;
     height: 10em;
-}
+  }
 }
 
-.login_content::before, .carrito_content::before {
-  content: '';
+// Estilos para las flechas en el contenido de inicio de sesión y carrito
+.login_content::before,
+.carrito_content::before {
+  content: "";
   position: absolute;
   top: -30px;
   left: 85%;
@@ -85,78 +100,71 @@
   border-color: transparent transparent white transparent; /* Define el color de la flecha (en este caso, blanco) */
 }
 
-.carrito_content{
+// Estilos específicos para el carrito
+.carrito_content {
   width: 21em;
 
-  .iconoError{
+  .iconoError {
     font-size: 5em;
   }
 
-  .productosCarrito{
-    max-height: 400px;
+  .productosCarrito {
+    max-height: 280px;
     overflow-y: scroll;
   }
-  img{
+
+  img {
     width: 30%;
   }
 
-  article:not(:first-child){
+  article:not(:first-child) {
     margin-top: 1.5em;
   }
 
-  .productTitle{
+  .productTitle {
     font-size: 1em;
     white-space: pre-wrap;
+  }
 
-    }
-
-
-  button{
+  button {
     font-size: 1.2em;
   }
 
-  .borrarProducto{
+  .borrarProducto {
     margin-top: 3px;
     position: absolute;
     right: -0.5em;
   }
 
-
-  .counter{
+  .counter {
     font-size: 0.9em;
     width: 1.7em;
 
-    :focus{
+    &:focus {
       outline: none;
     }
   }
 
-
-  /* Oculta los botones de incremento y decremento en Chrome, Safari y Edge */
+  // Oculta los botones de incremento y decremento en varios navegadores
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
-  /* Oculta los botones de incremento y decremento en Firefox */
   input[type="number"] {
     appearance: textfield;
   }
 
-
-  .codigos_descuento .btn{
+  .codigos_descuento .btn {
     width: 2em !important;
     height: 1.5em !important;
     position: absolute;
     top: 2em;
     right: 0.8em;
   }
-  
-  .resumen hr{
+
+  .resumen hr {
     margin: 0.7em 0 !important;
   }
-
-
 }
-
