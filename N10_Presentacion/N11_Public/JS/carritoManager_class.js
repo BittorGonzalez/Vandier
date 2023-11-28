@@ -126,8 +126,11 @@ class carritoManager {
     );
 
     card.style.backgroundImage =
-      "url(N10_Presentacion/N14_Assets/Images/camisa_1.webp)";
+      "url(N10_Presentacion/N14_Assets/Images/" + datos['imagen'] +")";
     card.style.backgroundSize = "cover";
+    card.style.backgroundPosition = "center center";
+
+
     card.setAttribute("data-id", datos["id"]);
 
     const contenido = document.createElement("div");
