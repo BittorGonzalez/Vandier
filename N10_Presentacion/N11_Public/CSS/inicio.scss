@@ -1,3 +1,5 @@
+@import url('./cards.scss');
+
 main {
   padding: 0px !important;
   display: flex;
@@ -83,106 +85,18 @@ main {
     }
   }
   // ----------CARD-----------
-  .profile-card-2 {
-    max-width: 300px;
-    background-color: black;
-    border: none;
-    outline: none;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    border-radius: 10px;
-    font-size: 16px;
+
+
+
+  //Capa para darle opacidad a la imagen
+  .containerProductos{
+    margin: 10em 0 10em;
     height: 400px;
-
-    .profile-botoncarrito {
-      background-color: rgb(255, 255, 255);
-      border-radius: 30%; /* Para crear un círculo perfecto */
-      width: 35px;
-      height: 35px;
-      position: absolute;
-      bottom: 5%;
-      right: 30px;
-      color: #000000;
-      transition: all linear 0.25s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: San-Francisco-Semibold;
-      font-size: 20px;
-      line-height: 1; /* Ajusta line-height */
-      box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.75);
-    }
-
-    .profile-botoncarrito:hover {
-      font-weight: bold;
-      align-items: center;
-      font-family: San-Francisco-Light;
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
-      transition: 0.3s;
-    }
-
-    img {
-      transition: all linear 0.25s;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .profile-name {
-      position: absolute;
-      left: 30px;
-      bottom: 70px;
-      font-size: 30px;
-      color: #fff;
-      text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-      font-weight: bold;
-      transition: all linear 0.25s;
-    }
-
-    .profile-icons {
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-      color: #fff;
-      transition: all linear 0.25s;
-
-      .fa {
-        margin: 5px;
-      }
-    }
-
-    .profile-username {
-      position: absolute;
-      bottom: 50px;
-      left: 30px;
-      color: #fff;
-      font-size: 16px;
-      transition: all linear 0.25s;
-    }
-
-    &:hover {
-      img {
-        filter: grayscale(100%);
-      }
-
-      .profile-name {
-        bottom: 80px;
-      }
-
-      .profile-username {
-        bottom: 60px;
-      }
-
-      .profile-icons {
-        right: 40px;
-      }
-    }
   }
-}
 
+  
+
+////////////////////////////////////////////////////////
 .segundafoto {
   margin-top: 150px;
 
@@ -236,4 +150,5 @@ main {
     float: right;
     margin-right: 5%;
   }
+}
 }

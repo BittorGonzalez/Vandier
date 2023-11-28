@@ -5,6 +5,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
+<script src="N10_Presentacion\N11_Public\JS\carritoManager_class.js"></script>
+
 <script src="N10_Presentacion\N11_Public\JS\main.js"></script>
 <?php
 
@@ -12,7 +14,10 @@ if (isset($URL) && $viewsControlador->esVistaPermitida($URL[0])) {
     $rutaJS = "N10_Presentacion\\N11_Public\\JS\\" . $URL[0] . ".js";
     
     if (is_file($rutaJS)) {
+  
         echo '<script src="' . $rutaJS . '"></script>';
+
+        
     }
 }
 

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("./cards.scss");
 .mainTitle {
   font-size: 9em;
   letter-spacing: 0.1em;

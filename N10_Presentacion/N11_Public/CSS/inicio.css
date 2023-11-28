@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url("./cards.scss");
 main {
   padding: 0px !important;
   display: flex;
@@ -72,117 +72,32 @@ main .LeftToRight {
     transform: translateX(0%);
   }
 }
-main .profile-card-2 {
-  max-width: 300px;
-  background-color: black;
-  border: none;
-  outline: none;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 16px;
+main .containerProductos {
+  margin: 10em 0 10em;
   height: 400px;
 }
-main .profile-card-2 .profile-botoncarrito {
-  background-color: rgb(255, 255, 255);
-  border-radius: 30%; /* Para crear un círculo perfecto */
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  bottom: 5%;
-  right: 30px;
-  color: #000000;
-  transition: all linear 0.25s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: San-Francisco-Semibold;
-  font-size: 20px;
-  line-height: 1; /* Ajusta line-height */
-  box-shadow: inset 0px 0px 4px 1px rgba(0, 0, 0, 0.75);
-}
-main .profile-card-2 .profile-botoncarrito:hover {
-  font-weight: bold;
-  align-items: center;
-  font-family: San-Francisco-Light;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  transition: 0.3s;
-}
-main .profile-card-2 img {
-  transition: all linear 0.25s;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-main .profile-card-2 .profile-name {
-  position: absolute;
-  left: 30px;
-  bottom: 70px;
-  font-size: 30px;
-  color: #fff;
-  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  font-weight: bold;
-  transition: all linear 0.25s;
-}
-main .profile-card-2 .profile-icons {
-  position: absolute;
-  bottom: 30px;
-  right: 30px;
-  color: #fff;
-  transition: all linear 0.25s;
-}
-main .profile-card-2 .profile-icons .fa {
-  margin: 5px;
-}
-main .profile-card-2 .profile-username {
-  position: absolute;
-  bottom: 50px;
-  left: 30px;
-  color: #fff;
-  font-size: 16px;
-  transition: all linear 0.25s;
-}
-main .profile-card-2:hover img {
-  filter: grayscale(100%);
-}
-main .profile-card-2:hover .profile-name {
-  bottom: 80px;
-}
-main .profile-card-2:hover .profile-username {
-  bottom: 60px;
-}
-main .profile-card-2:hover .profile-icons {
-  right: 40px;
-}
-
-.segundafoto {
+main .segundafoto {
   margin-top: 150px;
 }
-.segundafoto img {
+main .segundafoto img {
   width: 50vw;
 }
-
-.mosaico {
+main .mosaico {
   margin-top: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
-.mosaico .imagenmosaico {
+main .mosaico .imagenmosaico {
   width: 25vw;
   margin: 10px;
 }
-.mosaico .imagenmosaico3 {
+main .mosaico .imagenmosaico3 {
   width: 51vw;
   margin: 10px;
 }
-
-.bqtexto {
+main .bqtexto {
   margin-top: 10vh;
   background-color: #1f1f1f;
   border: solid 1px rgb(90, 90, 90);
@@ -193,17 +108,17 @@ main .profile-card-2:hover .profile-icons {
   align-items: center;
   justify-content: center;
 }
-.bqtexto .bloquedetexto {
+main .bqtexto .bloquedetexto {
   width: 100%;
 }
-.bqtexto p {
+main .bqtexto p {
   font-size: 70px;
   font-family: San-Francisco-Semibold;
 }
-.bqtexto p:first-child {
+main .bqtexto p:first-child {
   margin-left: 5%;
 }
-.bqtexto p:nth-child(2) {
+main .bqtexto p:nth-child(2) {
   float: right;
   margin-right: 5%;
 }/*# sourceMappingURL=inicio.css.map */
