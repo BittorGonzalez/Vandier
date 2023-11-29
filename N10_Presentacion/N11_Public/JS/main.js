@@ -138,8 +138,8 @@ function cargarFormularioDinamico(usuarioLogueado) {
     cargarFormularioPerfil(datosUsuario)
     cargarFormularioCarrito()
     contadorCarrito.classList.remove("d-none");
-    contadorCarrito.textContent = objCarritoManagerMain.mostrarNumProductosCarrito()
-
+    
+    
 
   } else {
     //Reajustar estilos del contenedor
@@ -274,6 +274,7 @@ function cargarFormularioPerfil(datosUsuario) {
 
 //Funcion que se encarga de crear los elementos del carrito
 function cargarFormularioCarrito() {
+  
   //Carrito
   divCarrito.innerHTML = "";
 
@@ -393,6 +394,9 @@ function cargarFormularioCarrito() {
   divCarrito.appendChild(divProductosCarrito);
   divCarrito.appendChild(resumenDiv);
 }
+
+
+
 
 
 

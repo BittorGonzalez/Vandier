@@ -17,8 +17,7 @@
 
             //INFO: Es un apaño bastante malo para solucionar un fallo que daba al pasar 2 parametros en la URL
             if (sizeof($vistas) > 1) {
-                header("Location:" . APP_URL . "/404");
-                exit();
+                echo '<script>window.location.href = " '. APP_URL .'/404 ";</script>';
             }
 
             if ($this->esVistaPermitida($vistas[0])) {

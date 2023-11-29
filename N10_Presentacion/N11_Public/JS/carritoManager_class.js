@@ -1,132 +1,130 @@
 class carritoManager {
-  //Se encuentra el elemento del carrito
+  // Se encuentra el elemento del carrito
   constructor() {
     this.divProductosCarrito = document.querySelector(".productosCarrito");
   }
-  //Metodo para crear articulo y añadirlo al elemento carrito
-  añadirProductoAlCarrito(idProducto) {
 
-    fetch("../N20_Negocio/N21_Controladores/productosControlador.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    
-      // Seleccionar el numero de registros que queremos recibir [0, para recibir todos los productos]
-      body: JSON.stringify({ id: idProducto }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-      })
-      .catch((error) => console.error("Error:", error));
+  // Método para crear articulo y añadirlo al elemento carrito + añadir a la base de datos
+  añadirProductoAlCarrito(datos) {
+    console.log(this.calcularNumProductosEnCarrito())
 
     const divProductosCarrito = document.querySelector(".productosCarrito");
 
-    const divArticulo = document.createElement("article");
-    divArticulo.classList.add(
-      "d-flex",
-      "gap-2",
-      "pb-4",
-      "border-bottom",
-      "border-2",
-      "position-relative"
-    );
+    // Verificar si el producto ya está en el carrito
+    const productosEnCarrito = divProductosCarrito.querySelectorAll('.productTitle');
+    const productoExistente = Array.from(productosEnCarrito).find(producto => producto.textContent === datos[1]);
 
-    const iconBorrar = document.createElement("i");
-    iconBorrar.classList.add(
-      "borrarProducto",
-      "fa-regular",
-      "fa-circle-xmark",
-      "text-danger"
-    );
+    if (productoExistente) {
+      // Si el producto ya existe, incrementar el valor del input
+      const inputExistente = productoExistente.closest('.info').querySelector('.counter');
+      inputExistente.value = parseInt(inputExistente.value) + 1;
+    } else {
+      // Si el producto no existe, añadir la nueva card
+      const divArticulo = document.createElement("article");
+      divArticulo.classList.add(
+        "d-flex",
+        "gap-2",
+        "pb-4",
+        "border-bottom",
+        "border-2",
+        "position-relative"
+      );
 
-    const imgProducto = document.createElement("img");
-    imgProducto.classList.add("rounded");
-    imgProducto.setAttribute("src", imagenSrc);
+      const iconBorrar = document.createElement("i");
+      iconBorrar.classList.add(
+        "borrarProducto",
+        "fa-regular",
+        "fa-circle-xmark",
+        "text-danger"
+      );
 
-    const infoProducto = document.createElement("div");
-    infoProducto.classList.add("info", "d-flex", "flex-column");
+      const imgProducto = document.createElement("img");
+      imgProducto.classList.add("rounded");
+      imgProducto.setAttribute("src", datos[0]);
 
-    const tituloProducto = document.createElement("h2");
-    tituloProducto.classList.add("productTitle", "fw-bold");
-    tituloProducto.textContent = nombreProducto;
+      const infoProducto = document.createElement("div");
+      infoProducto.classList.add("info", "d-flex", "flex-column");
 
-    const divCantidadPrecio = document.createElement("div");
-    divCantidadPrecio.classList.add(
-      "cantidad_precio",
-      "mt-1",
-      "w-100",
-      "d-flex",
-      "justify-content-between",
-      "align-items-center"
-    );
+      const tituloProducto = document.createElement("h2");
+      tituloProducto.classList.add("productTitle", "fw-bold");
+      tituloProducto.textContent = datos[1];
 
-    const contador = document.createElement("div");
-    contador.classList.add("contador", "d-flex", "align-items-center", "gap-1");
+      const divCantidadPrecio = document.createElement("div");
+      divCantidadPrecio.classList.add(
+        "cantidad_precio",
+        "mt-1",
+        "w-100",
+        "d-flex",
+        "justify-content-between",
+        "align-items-center"
+      );
 
-    const btnDecrementa = document.createElement("button");
-    btnDecrementa.classList.add("btnDecrementa", "bg-white", "border-0");
-    btnDecrementa.textContent = "-";
+      const contador = document.createElement("div");
+      contador.classList.add("contador", "d-flex", "align-items-center", "gap-1");
 
-    const input = document.createElement("input");
-    input.setAttribute("type", "number");
-    input.setAttribute("value", "1");
-    input.classList.add("counter", "border-0");
+      const btnDecrementa = document.createElement("button");
+      btnDecrementa.classList.add("btnDecrementa", "bg-white", "border-0");
+      btnDecrementa.textContent = "-";
 
-    const btnIncrementa = document.createElement("button");
-    btnIncrementa.classList.add("btnIncrementa", "bg-white", "border-0");
-    btnIncrementa.textContent = "+";
+      const input = document.createElement("input");
+      input.setAttribute("type", "number");
+      input.setAttribute("value", "1");
+      input.classList.add("counter", "border-0");
 
-    contador.appendChild(btnDecrementa);
-    contador.appendChild(input);
-    contador.appendChild(btnIncrementa);
+      const btnIncrementa = document.createElement("button");
+      btnIncrementa.classList.add("btnIncrementa", "bg-white", "border-0");
+      btnIncrementa.textContent = "+";
 
-    const precioProductoElement = document.createElement("span");
-    precioProductoElement.classList.add("fw-bold");
-    precioProductoElement.textContent = precioProducto;
+      contador.appendChild(btnDecrementa);
+      contador.appendChild(input);
+      contador.appendChild(btnIncrementa);
 
-    divCantidadPrecio.appendChild(contador);
-    divCantidadPrecio.appendChild(precioProductoElement);
+      const precioProductoElement = document.createElement("span");
+      precioProductoElement.classList.add("fw-bold");
+      precioProductoElement.textContent = datos[2] + "€";
 
-    infoProducto.appendChild(tituloProducto);
-    infoProducto.appendChild(divCantidadPrecio);
+      divCantidadPrecio.appendChild(contador);
+      divCantidadPrecio.appendChild(precioProductoElement);
 
-    divArticulo.appendChild(iconBorrar);
-    divArticulo.appendChild(imgProducto);
-    divArticulo.appendChild(infoProducto);
+      infoProducto.appendChild(tituloProducto);
+      infoProducto.appendChild(divCantidadPrecio);
 
-    divProductosCarrito.appendChild(divArticulo);
-  }
+      divArticulo.appendChild(iconBorrar);
+      divArticulo.appendChild(imgProducto);
+      divArticulo.appendChild(infoProducto);
 
-  //Metodo para controlar los eventos de los botones
-  controlarBotonesArticulos(divProductosCarrito) {
-    const btn_incrementar =
-      divProductosCarrito.querySelectorAll(".btnIncrementa");
-    const value_input = divProductosCarrito.querySelectorAll(".counter");
-    const btn_decrementar =
-      divProductosCarrito.querySelectorAll(".btnDecrementa");
-    const btn_borrar = divProductosCarrito.querySelectorAll(".borrarProducto");
+      divProductosCarrito.appendChild(divArticulo);
 
-    btn_incrementar.forEach((btn, index) => {
-      btn.addEventListener("click", (e) => {
-        e.stopImmediatePropagation();
-        value_input[index].value = parseInt(value_input[index].value) + 1;
-      });
-    });
+      divCarrito.classList.replace("d-none", "d-flex");
 
-    btn_decrementar.forEach((btn, index) => {
-      btn.addEventListener("click", (e) => {
-        e.stopImmediatePropagation();
+  
 
-        if (parseInt(value_input[index].value) > 1) {
-          value_input[index].value = parseInt(value_input[index].value) - 1;
+
+      // EVENTOS
+      btnDecrementa.addEventListener('click', () => {
+        if (parseInt(input.value) > 1) {
+          input.value = parseInt(input.value) - 1;
         }
       });
-    });
+
+      btnIncrementa.addEventListener("click", () => {
+        input.value = parseInt(input.value) + 1;
+      });
+
+
+      iconBorrar.addEventListener("click", (e) => {
+        const elementoPadre = e.target.parentElement;
+        divProductosCarrito.removeChild(elementoPadre);
+      });
+
+      input.addEventListener('input', ()=>{
+        console.log("cambiado")
+      })
+
+    }
   }
 
-  //Crear elementos de articulo
+  // Crear elementos de articulo
   crearCardProducto(datos) {
     const card = document.createElement("div");
     card.classList.add(
@@ -139,13 +137,12 @@ class carritoManager {
     );
 
     card.style.backgroundImage =
-      "url(N10_Presentacion/N14_Assets/Images/" + datos['imagen'] + ")";
+      "url(N10_Presentacion/N14_Assets/Images/" + datos["imagen"] + ")";
     card.style.backgroundSize = "cover";
     card.style.backgroundPosition = "center center";
 
-
-    card.setAttribute("data-id", datos["id"]);
-    card.setAttribute('data-category', ["categoria"])
+    card.setAttribute("data-id", datos["idProducto"]);
+    card.setAttribute("data-category", datos["categoria"]);
 
     const contenido = document.createElement("div");
     contenido.classList.add(
@@ -170,7 +167,7 @@ class carritoManager {
 
     const precio = document.createElement("span");
     precio.classList.add("fs-4");
-    precio.textContent = datos[precio];
+    precio.textContent = datos['precio'] + "€";
 
     productInfo.appendChild(titulo);
     productInfo.appendChild(precio);
@@ -200,12 +197,8 @@ class carritoManager {
     btnCarrito.textContent = "+";
 
     btnCarrito.addEventListener("click", (e) => {
-
-      
-
-      let idProducto = e.target.parentNode.parentNode.parentNode.getAttribute('data-id')
-      this.añadirProductoAlCarrito(idProducto)
-
+      let idProducto = e.target.parentNode.parentNode.parentNode.getAttribute("data-id");
+      this.añadirProductoAlCarrito(this.obtenerDatosProductoPorId(idProducto));
     });
 
     const btnFav = document.createElement("button");
@@ -227,29 +220,39 @@ class carritoManager {
 
     card.appendChild(contenido);
 
-    const col = document.createElement('div')
-    col.classList.add('col')
-    col.appendChild(card)
+    const col = document.createElement("div");
+    col.classList.add("col", "colContenedor");
+    col.appendChild(card);
 
     return col;
   }
 
-  //Calcular el numero de articulos que existen en el carrito y retornar
-  mostrarNumProductosCarrito() {
-    const divProductosCarrito = document.querySelector(".productosCarrito");
-    
-    let articulos = divProductosCarrito.querySelectorAll('article')
-    let numArticulos = articulos.length
+  obtenerDatosProductoPorId(idProducto) {
+    let datosProducto = [];
+    const contenedor = document.querySelector('.cardProducto[data-id="' + idProducto + '"]');
 
-    return numArticulos;
+    // Imagen
+    let imgURL = contenedor.getAttribute('style');
+    const coincidencia = imgURL.match(/url\("([^"]+)"\)/);
+    const img = coincidencia[1];
+
+    // Titulo
+    let h2 = contenedor.querySelector('.productInfo h2');
+    const titulo = h2.textContent;
+
+    // Precio
+    let span = contenedor.querySelector('.productInfo span');
+    const precio = parseFloat(span.textContent).toFixed(2);;
+
+    datosProducto.push(img, titulo, precio);
+    return datosProducto;
   }
 
-  //Obtener info articulo clickado
-  obtenerinfoProducto(e){
-    console.log(idProducto)
-  }
 
+  calcularNumProductosEnCarrito() {
+    const divProductosCarrito = document.querySelectorAll(".divCantidadPrecio article");
+    const num = divProductosCarrito.length;
+  
+    return num;
+  }
 }
-
-
-

@@ -91,9 +91,18 @@ class conexion_DB
     }
 
 
-    protected function actualizar($datos, $tabla)
-    {
+    protected function actualizar($datos, $tabla){}
+    
 
+    protected function ejecutar($procedimiento){
+
+
+        try{
+            $resul  = $this->conectar()->query($procedimiento);
+
+        }catch(PDOException $e){
+            echo 'Error al intentar ejecutar el procedimiento almacenado' . $e->getMessage();
+        }
     }
 }
 
