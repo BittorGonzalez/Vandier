@@ -11,7 +11,7 @@
 <?php
 
 if (isset($URL) && $viewsControlador->esVistaPermitida($URL[0])) {
-    $rutaJS = "N10_Presentacion\\N11_Public\\JS\\" . $URL[0] . ".js";
+    $rutaJS = "N10_Presentacion/N11_Public/JS/" . $URL[0] . ".js";
     
     if (is_file($rutaJS)) {
   
