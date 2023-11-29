@@ -19,7 +19,24 @@ class usuariosModelo extends conexion_DB{
         
         return $resultados;
     }
+    public function insertarUsuario($nombre, $apellido, $usuario, $email, $contrasena) {
+        $fechaRegistro = date("Y-m-d H:i:s");
+        $idRol = 2;
 
+        // Crear un array asociativo con los datos
+        $datos = array(
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'usuario' => $usuario,
+            'email' => $email,
+            'passw' => $contrasena,
+            'fechaRegistro' => $fechaRegistro,
+            'idRol' => $idRol
+        );
+
+        // Llamar a la función insertar
+        $this->insertar($datos, 'usuarios');
+    }
 }
 
 ?>

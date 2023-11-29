@@ -34,60 +34,17 @@ class conexion_DB
 
     protected function insertar($datos, $tabla)
     {
+        $sql = "INSERT INTO $tabla (";
+        $sql .= implode(", ", array_keys($datos)) . ") VALUES (";
+        $sql .= ":" . implode(", :", array_keys($datos)) . ")";
 
-        //INFO: Construccion de la sentencia insert recorriendo array de datos
+        $stmt = $this->conectar()->prepare($sql);
 
-        /*
-            Ejem. Estructura del array de datos =>
-    
-                $datos = [
-                    [
-                        "campo_nombre"=>"nombreUsuario",
-                        "campo_marcador"=>":Nombre",
-                        "campo_valor" => $nombre
-                    ],
-                    [
-                        "campo_nombre"=>"ApellidoUsuario",
-                        "campo_marcador"=>":Apellido",
-                        "campo_valor" => $apellido
-                    ]
-    
-                ]
-
-            Ejem. Sentencia resultante: INSERT INTO USUARIOS (campo1, campo2) VALUES(:campo1, :campo2)       
-    
-        */
-
-
-        $query = "INSERT INTO $tabla (";
-        $values = "";
-
-        $i = 0;
-
-        foreach ($datos as $clave) {
-
-            //Si el contador ES MAYOR a 1 se pone una , al principio
-            if ($i >= 1) {
-                $query .= ",";
-                $values .= ",";
-            }
-
-            $query .= $clave["campo_nombre"];
-            $values .= $clave["campo_marcador"];
-
-            $i++;
+        foreach ($datos as $key => $value) {
+            $stmt->bindValue(":$key", $value);
         }
 
-        $query .= ") VALUES ($values)";
-        $sql = $this->conectar()->prepare($query);
-
-        //Se cambian los valores de los marcadores por el valor real
-        foreach ($datos as $clave) {
-            $sql->bindParam($clave["campo_marcador"], $clave["campo_valor"]);
-        }
-
-        $sql->execute();
-        return $sql;
+        $stmt->execute();
     }
 
 

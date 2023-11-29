@@ -7,7 +7,7 @@ class CarritoModelo extends conexion_DB{
 
     public function insertarProductosAlCarrito(){
 
-        $procedimiento = "CALL insertarProducto(:)"
+        $procedimiento = "CALL insertarProducto(:)";
 
         //$this->ejecutar("insertarProducto");
     }
