@@ -51,16 +51,22 @@ class conexion_DB
     protected function actualizar($datos, $tabla){}
     
 
-    protected function ejecutar($procedimiento){
+    protected function ejecutar($procedimiento, $parametros = array()){
+    try {
+        $conexion = $this->conectar();
+        $stmt = $conexion->prepare($procedimiento);
 
-
-        try{
-            $resul  = $this->conectar()->query($procedimiento);
-
-        }catch(PDOException $e){
-            echo 'Error al intentar ejecutar el procedimiento almacenado' . $e->getMessage();
+        foreach ($parametros as $key => $value) {
+            $stmt->bindValue(":$key", $value);
         }
+
+        $stmt->execute();
+        return $stmt;
+    } catch (PDOException $e) {
+        echo 'Error al intentar ejecutar el procedimiento almacenado' . $e->getMessage();
+        return null;
     }
+}
 }
 
 

@@ -1,12 +1,11 @@
 // FUNCIONALIDAD DEL HEADER
 
-
 //Crear instancia de la clase carritoManager
 const objCarritoManagerMain = new carritoManager();
 
-
-//Al cargar la pagina obtener informacion del logueo
+//Al cargar la pagina obtener informacion del logueo y informacion del carrito
 window.onload = cargarEstadoLogin();
+//window.onload = objCarritoManagerMain.insertarProductosLocalStorageEnCarrito()
 
 // ---------------------LOGIN-----------------------------------
 
@@ -90,12 +89,14 @@ function obtenerDatosLogin() {
 //--------------------------- CARRITO-------------------------------
 //Elementos del DOM
 const iconoCarrito = document.querySelector(".iconoCarrito");
-const contadorCarrito = document.querySelector(".contadorCarrito")
+const contadorCarrito = document.querySelector(".contadorCarrito");
 const divCarrito = document.querySelector(".carrito_content");
 const contenerCarrito = iconoCarrito.closest("li");
 const btnIncrementa = document.querySelector(".btnIncrementa");
 const btnDecrementa = document.querySelector(".btnDecrementa");
-const btnIniciarSesionCarrito = document.querySelector(".btn_iniciarSesionCarrito");
+const btnIniciarSesionCarrito = document.querySelector(
+  ".btn_iniciarSesionCarrito"
+);
 
 //Gestion del DOM
 contenerCarrito.addEventListener("mouseover", () => {
@@ -130,17 +131,12 @@ function cargarEstadoLogin() {
 
 //Si el usuario se ha logueado cambiar el contenido del formulario
 function cargarFormularioDinamico(usuarioLogueado) {
-
   const datosUsuario = JSON.parse(localStorage.getItem("userInfo"));
 
   if (usuarioLogueado) {
-
-    cargarFormularioPerfil(datosUsuario)
-    cargarFormularioCarrito()
+    cargarFormularioPerfil(datosUsuario);
+    cargarFormularioCarrito();
     contadorCarrito.classList.remove("d-none");
-    
-    
-
   } else {
     //Reajustar estilos del contenedor
     divCarrito.style.width = "17em";
@@ -149,12 +145,8 @@ function cargarFormularioDinamico(usuarioLogueado) {
   }
 }
 
-
-
-
 //Funcion que se encarga de crear los elementos del perfil
 function cargarFormularioPerfil(datosUsuario) {
-
   //Perfil
   divLogin.innerHTML = "";
 
@@ -274,8 +266,8 @@ function cargarFormularioPerfil(datosUsuario) {
 
 //Funcion que se encarga de crear los elementos del carrito
 function cargarFormularioCarrito() {
-  
   //Carrito
+
   divCarrito.innerHTML = "";
 
   divCarrito.style.width = "21em";
@@ -381,6 +373,19 @@ function cargarFormularioCarrito() {
   btnComprar.classList.add("btn", "btn-dark", "mt-2");
   btnComprar.textContent = "COMPRAR";
 
+  btnComprar.addEventListener("click", () => {
+    let infoCarrito = objCarritoManagerMain.guardarCarritoLocalStorage();
+
+    if (infoCarrito) {
+      mandarDatosDeCompra();
+      alert("La compra se ha realizado con exito");
+
+     
+    } else {
+      alert("No se ha podido completar la compra");
+    }
+  });
+
   const lineaDivisora = document.createElement("hr");
   const lineaDivisora2 = document.createElement("hr");
 
@@ -396,7 +401,41 @@ function cargarFormularioCarrito() {
 }
 
 
+function mandarDatosDeCompra() {
+  let userInfoString = localStorage.getItem("userInfo");
+  let idUsuario;
 
+  if (userInfoString) {
+    const userInfo = JSON.parse(userInfoString);
+    idUsuario = userInfo.id;
+  }
 
+  let infoCarritoString = localStorage.getItem("infoCarrito");
+  let ventaLineas;
 
+  if (infoCarritoString) {
+    ventaLineas = JSON.parse(infoCarritoString);
+  }
 
+  if (idUsuario !== undefined && ventaLineas !== undefined) {
+    const params = {
+      idUsuario: idUsuario,
+      ventaLineas: ventaLineas
+    };
+
+    fetch("../N20_Negocio/N21_Controladores/ventasControlador.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params) // Convertir el objeto a JSON
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Manejar la respuesta del servidor
+      })
+      .catch((error) => console.error("Error:", error));
+  } else {
+    console.log("No se pudieron obtener los valores necesarios desde el localStorage.");
+  }
+}

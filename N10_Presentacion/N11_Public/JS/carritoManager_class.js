@@ -1,17 +1,19 @@
 class carritoManager {
   // Se encuentra el elemento del carrito
   constructor() {
-    this.divProductosCarrito = document.querySelector(".productosCarrito");
+    this.divProductosCarrito = document.querySelector(".carrito_content");
   }
 
-  // Método para crear articulo y añadirlo al elemento carrito + añadir a la base de datos
+  // Método para crear articulo y añadirlo al elemento carrito
   añadirProductoAlCarrito(datos) {
-    console.log(this.calcularNumProductosEnCarrito())
 
-    const divProductosCarrito = document.querySelector(".productosCarrito");
+    //datos[0] = img
+    //datos[1] = titulo
+    //datos[2] = precio
+    //datos[3] = cantidad
 
     // Verificar si el producto ya está en el carrito
-    const productosEnCarrito = divProductosCarrito.querySelectorAll('.productTitle');
+    const productosEnCarrito = this.divProductosCarrito.querySelectorAll('.productTitle');
     const productoExistente = Array.from(productosEnCarrito).find(producto => producto.textContent === datos[1]);
 
     if (productoExistente) {
@@ -68,7 +70,7 @@ class carritoManager {
 
       const input = document.createElement("input");
       input.setAttribute("type", "number");
-      input.setAttribute("value", "1");
+      input.setAttribute("value", 1);
       input.classList.add("counter", "border-0");
 
       const btnIncrementa = document.createElement("button");
@@ -80,7 +82,7 @@ class carritoManager {
       contador.appendChild(btnIncrementa);
 
       const precioProductoElement = document.createElement("span");
-      precioProductoElement.classList.add("fw-bold");
+      precioProductoElement.classList.add("fw-bold", 'productPrice');
       precioProductoElement.textContent = datos[2] + "€";
 
       divCantidadPrecio.appendChild(contador);
@@ -93,12 +95,11 @@ class carritoManager {
       divArticulo.appendChild(imgProducto);
       divArticulo.appendChild(infoProducto);
 
-      divProductosCarrito.appendChild(divArticulo);
+      this.divProductosCarrito.querySelector('.productosCarrito ').appendChild(divArticulo)
 
       divCarrito.classList.replace("d-none", "d-flex");
 
   
-
 
       // EVENTOS
       btnDecrementa.addEventListener('click', () => {
@@ -114,12 +115,11 @@ class carritoManager {
 
       iconBorrar.addEventListener("click", (e) => {
         const elementoPadre = e.target.parentElement;
-        divProductosCarrito.removeChild(elementoPadre);
+        this.divProductosCarrito.querySelector(".productosCarrito ").removeChild(elementoPadre);
+        this.comprobarNoProductos()
       });
 
-      input.addEventListener('input', ()=>{
-        console.log("cambiado")
-      })
+
 
     }
   }
@@ -227,6 +227,7 @@ class carritoManager {
     return col;
   }
 
+  //Obtener los datos del producto seleccionado
   obtenerDatosProductoPorId(idProducto) {
     let datosProducto = [];
     const contenedor = document.querySelector('.cardProducto[data-id="' + idProducto + '"]');
@@ -248,11 +249,34 @@ class carritoManager {
     return datosProducto;
   }
 
+  //Guardar info del carrito en localStorage
+  guardarCarritoLocalStorage(){
 
-  calcularNumProductosEnCarrito() {
-    const divProductosCarrito = document.querySelectorAll(".divCantidadPrecio article");
-    const num = divProductosCarrito.length;
-  
-    return num;
-  }
+    
+      let carritoInfo = [];
+
+      let carrito = document.querySelector(".productosCarrito")
+      let articulos = document.querySelectorAll("article")
+
+      articulos.forEach(articulo =>{
+
+          let titulo = articulo.querySelector('.productTitle')
+          let precio = articulo.querySelector('.productPrice')
+          let cantidad = articulo.querySelector('.counter')
+          let imagen = articulo.querySelector('img').getAttribute('src');
+
+          let productoInfo = {'titulo' : titulo.textContent, 'precio': precio.textContent, 'cantidad' : cantidad.value, 'imagen' :imagen};
+          carritoInfo.push(productoInfo);
+
+        })
+
+        if(carritoInfo.length > 0){
+          localStorage.setItem('infoCarrito', JSON.stringify(carritoInfo));
+          return true
+        }else{
+          return false
+        }
+
+    }
+
 }
