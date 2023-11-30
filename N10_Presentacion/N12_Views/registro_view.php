@@ -13,15 +13,16 @@
                     <h2 class="fw-bold">Danos tu nombre</h2>
 
                     <div class="d-flex flex-column gap-3 mt-4">
-                        <input type="text" class="form-control" placeholder="Usuario" required>
-                        <input type="text" class="form-control" placeholder="Nombre" required>
-                        <input type="text" class="form-control" placeholder="Apellido" required>
+                        <input type="text" class="form-control" id="usuarioregistro" placeholder="Usuario" required>
+                        <input type="text" class="form-control" id="nombreregistro" placeholder="Nombre" required>
+                        <input type="text" class="form-control" id="apellidoregistro" placeholder="Apellido" required>
                     </div>
 
 
                 </div>
                 <button type="button" class="btn border border-white text-white border-2 fw-bold mt-3 mt-5"
                     onclick="nextStep(1)">Siguiente</button>
+                    
             </div>
 
             <!-- Paso 2 -->
@@ -29,16 +30,17 @@
                 <h2 class="fw-bold">Define las credenciales</h2>
                 <div class="form-group">
                     <div class="d-flex flex-column gap-3 mt-4">
-                        <input type="email" class="form-control" placeholder="Email" required>
-                        <input type="password" class="form-control" placeholder="Contraseña" required>
-                        <input type="password" class="form-control" placeholder="Confirma la contraseña" required>
+                        <input type="email" class="form-control" id="emailregistro" placeholder="Email" required>
+                        <input type="password" class="form-control" id="contraseñaregistro" placeholder="Contraseña" required>
+                        <input type="password" class="form-control" id="cambiaregistro" placeholder="Confirma la contraseña" required>
 
                     </div>
                 </div>
                 <div class="mt-5 d-flex gap-3">
                     <button type="button" class="btn btn-dark" onclick="prevStep(2)">Anterior</button>
-                    <button type="button" class="btn border border-white text-white border-2 fw-bold"
-                        onclick="nextStep(2)">Registrarse</button>
+                    <button type="button" class="btn border border-white text-white border-2 fw-bold" 
+                    id="registrarse-btn" onclick="nextStep(2)">Registrarse</button>
+
 
                 </div>
 

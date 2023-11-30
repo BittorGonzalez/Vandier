@@ -33,19 +33,28 @@ class conexion_DB
 
 
     protected function insertar($datos, $tabla)
-    {
-        $sql = "INSERT INTO $tabla (";
-        $sql .= implode(", ", array_keys($datos)) . ") VALUES (";
-        $sql .= ":" . implode(", :", array_keys($datos)) . ")";
+{
+    try {
+        $conexion = $this->conectar();
 
-        $stmt = $this->conectar()->prepare($sql);
+        $campos = implode(", ", array_keys($datos));
+        $valores = ":" . implode(", :", array_keys($datos));
+
+        $sql = "INSERT INTO $tabla ($campos) VALUES ($valores)";
+
+        $stmt = $conexion->prepare($sql);
 
         foreach ($datos as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }
 
         $stmt->execute();
+        echo "Datos insertados correctamente en la base de datos";
+    } catch (PDOException $e) {
+        echo 'Error al insertar datos: ' . $e->getMessage();
     }
+}
+
 
 
     protected function actualizar($datos, $tabla){}
