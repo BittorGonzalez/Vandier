@@ -9,8 +9,11 @@ class ventasModelo extends conexion_DB{
     public function insertarProductos($parametros){
         try{
 
-            $procedimiento = "CALL nuevaVenta()";
-            $resultado = $this->ejecutar($procedimiento, $parametros);
+            $json_param = json_encode($parametros);
+            $procedimiento = "CALL nuevaVenta('$json_param')";
+
+            
+            $resultado = $this->ejecutar($procedimiento);
 
             return $resultado;
 

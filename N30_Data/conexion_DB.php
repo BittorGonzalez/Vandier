@@ -60,14 +60,23 @@ class conexion_DB
     protected function actualizar($datos, $tabla){}
     
 
-    protected function ejecutar($procedimiento, $parametros = array()){
+    protected function ejecutar($procedimiento){
     try {
         $conexion = $this->conectar();
         $stmt = $conexion->prepare($procedimiento);
 
-        foreach ($parametros as $key => $value) {
-            $stmt->bindValue(":$key", $value);
-        }
+
+
+        // foreach ($parametros as $key => $value) {
+        //     if (is_array($value)) {
+        //         foreach ($value as $innerKey => $innerValue) {
+        //             $stmt->bindValue(":$innerKey", $innerValue);
+        //         }
+        //     } else {
+        //         $stmt->bindValue(":$key", $value);
+        //     }
+        // }
+
 
         $stmt->execute();
         return $stmt;

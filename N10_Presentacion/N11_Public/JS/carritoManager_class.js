@@ -116,7 +116,6 @@ class carritoManager {
       iconBorrar.addEventListener("click", (e) => {
         const elementoPadre = e.target.parentElement;
         this.divProductosCarrito.querySelector(".productosCarrito ").removeChild(elementoPadre);
-        this.comprobarNoProductos()
       });
 
 

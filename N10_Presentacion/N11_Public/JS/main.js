@@ -378,12 +378,9 @@ function cargarFormularioCarrito() {
 
     if (infoCarrito) {
       mandarDatosDeCompra();
-      alert("La compra se ha realizado con exito");
-
-     
-    } else {
-      alert("No se ha podido completar la compra");
     }
+     
+    
   });
 
   const lineaDivisora = document.createElement("hr");
@@ -423,16 +420,22 @@ function mandarDatosDeCompra() {
       ventaLineas: ventaLineas
     };
 
+  
     fetch("../N20_Negocio/N21_Controladores/ventasControlador.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(params) // Convertir el objeto a JSON
+      body: JSON.stringify(params)
     })
       .then((response) => response.json())
       .then((data) => {
-        // Manejar la respuesta del servidor
+          if(data.estado === 'success'){
+            alert("Compra realizada con exito")
+          }else{
+            alert("No se ha podido realizar la compra")
+
+          }
       })
       .catch((error) => console.error("Error:", error));
   } else {
