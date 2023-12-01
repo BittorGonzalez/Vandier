@@ -442,3 +442,18 @@ function mandarDatosDeCompra() {
     console.log("No se pudieron obtener los valores necesarios desde el localStorage.");
   }
 }
+
+
+
+//------------------------------DASHBOARD-----------------------------
+
+
+//TOPBAR
+const admin = document.querySelector(".topbar")
+
+if(admin){
+  
+  const textoUsuario = document.querySelector(".perfilUsuario")
+  textoUsuario.textContent = JSON.parse(localStorage.getItem('userInfo')).usuario
+
+}
