@@ -9,9 +9,9 @@ class productosModelo extends conexion_DB {
     public function consultarProductos($limite) {
         
         if (is_numeric($limite) && $limite > 0) {
-            $sql = $this->consultar("SELECT * FROM producto LIMIT " . $limite);
+            $sql = $this->consultar("SELECT * FROM producto WHERE stock > 0 LIMIT " . $limite);
         } else {
-            $sql = $this->consultar("SELECT * FROM producto");
+            $sql = $this->consultar("SELECT * FROM producto WHERE stock > 0");
         }
     
         $sql->execute();
@@ -21,16 +21,31 @@ class productosModelo extends conexion_DB {
         return $resultados;
     }
 
-    public function obtenerProductoPorCodReferencia($codReferencia){
-        $sql = $this->consultar("SELECT * FROM producto WHERE codReferencia= :codReferencia");
+    public function consultarProductosConCodigoDescuento($codigo)
+    {
+        $sql = $this->consultar("SELECT PR.nombre, CD.descuento FROM producto AS PR 
+                                LEFT JOIN codigos_descuento AS CD ON PR.idCodigoDescuento = CD.id
+                                WHERE CD.nombre = '$codigo'"
+        );
 
-        $sql->bindParam(':codReferencia', $codReferencia);
-
+        $sql->execute();
         $resultados = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-        return $resultados;
-
+        if (count($resultados) > 0) {
+            $response = ['descuento' => null, 'productos' => []];
+    
+            foreach ($resultados as $row) {
+                $response['descuento'] = $row['descuento']; 
+                $response['productos'][] = $row['nombre']; 
+            }
+        } else {
+            $response = ['mensaje' => 'No existen productos con ese código asignado'];
+        }
+    
+        return $response;
     }
+    
+
 }
 
 ?>

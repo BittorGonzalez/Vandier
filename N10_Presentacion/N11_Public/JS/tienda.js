@@ -8,7 +8,10 @@ fetch("../N20_Negocio/N21_Controladores/productosControlador.php", {
   },
 
   // Seleccionar el numero de registros que queremos recibir [0, para recibir todos los productos]
-  body: JSON.stringify({ limite: 0 }),
+  body: JSON.stringify({
+    tipo: "obtenerProductos", 
+    limite: 0
+  }),
 })
   .then((response) => response.json())
   .then((data) => {

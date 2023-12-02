@@ -10,12 +10,28 @@ use N20_Negocio\N22_Modelos\productosModelo;
 
 class productosControlador extends productosModelo{
 
-   
+    private $postData;
 
+    public function __construct(){
+
+        $this->postData = json_decode(file_get_contents("php://input"), true);
+
+    }
+
+    public function gestionarPeticionPost(){
+
+        if (isset($this->postData["tipo"])) {
+            
+            if ($this->postData["tipo"] === "obtenerProductos") {
+                $this->obtenerProductos();
+            } else if ($this->postData["tipo"] === "obtenerCodigosDescuento") {
+                $this->obtenerCodigosDescuento();
+            }
+        }
+    }
     public function obtenerProductos(){
 
-        $postData = json_decode(file_get_contents("php://input"), true);
-        $limite = isset($postData['limite']) ? (int)$postData['limite'] : null;
+        $limite = isset($this->postData['limite']) ? (int)$this->postData['limite'] : null;
 
         $datos = $this->consultarProductos($limite);
 
@@ -30,32 +46,32 @@ class productosControlador extends productosModelo{
 
     }
 
-    public function obtenerProductoPorId(){
 
-        $id = json_decode(file_get_contents('php://input'), true);
 
-        $datos = $this->obtenerProductoPorCodReferencia($id);
+
+    function obtenerCodigosDescuento(){
+        
+        $datos = $this->consultarProductosConCodigoDescuento($this->postData['codigo']);
 
         if($datos){
             $response = $datos;
         }else{
-            $response = ['Mensaje'=>'No se han encontrado usuarios'];
-
+            $response = ['mensaje' => 'No hay articulos con este codigo'];
         }
 
         echo json_encode($response);
+
+
     }
 
 }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
     $productoControl = new productosControlador();
-    $productoControl->obtenerProductos();
+    $productoControl->gestionarPeticionPost();
 
-}else if ($_SERVER["REQUEST_METHOD"] == "GET"){
-    $productoControl = new productosControlador();
-    $productoControl->obtenerProductoPorId();
 }
 
 

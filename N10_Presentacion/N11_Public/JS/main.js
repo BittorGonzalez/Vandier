@@ -131,6 +131,7 @@ function cargarEstadoLogin() {
 
 //Si el usuario se ha logueado cambiar el contenido del formulario
 function cargarFormularioDinamico(usuarioLogueado) {
+
   const datosUsuario = JSON.parse(localStorage.getItem("userInfo"));
 
   if (usuarioLogueado) {
@@ -302,7 +303,9 @@ function cargarFormularioCarrito() {
     "px-3",
     "py-2",
     "border-dark",
-    "mt-2"
+    "mt-2",
+    "inputCodigo",
+    "text-uppercase"
   );
   codigoDescuentoInput.placeholder = "Código";
 
@@ -317,9 +320,19 @@ function cargarFormularioCarrito() {
   );
   aplicarCodigoButton.innerHTML = '<i class="fa-solid fa-check"></i>';
 
+  const mensaje = document.createElement('p')
+  mensaje.classList.add("mensajeCarrito", "text-danger","fw-bold", "mt-2", "d-none")
+  mensaje.textContent = "oiug"
+
+
+  aplicarCodigoButton.addEventListener("click", ()=>{
+    objCarritoManagerMain.gestionarCodigosDescuento();
+  })
+
   // Agregar elementos al bloque de códigos descuento
   codigosDescuentoDiv.appendChild(codigosDescuentoLabel);
   codigosDescuentoDiv.appendChild(codigoDescuentoInput);
+  codigosDescuentoDiv.appendChild(mensaje);
   codigosDescuentoDiv.appendChild(aplicarCodigoButton);
 
   // Agregar el bloque de códigos descuento al contenedor principal
@@ -334,11 +347,25 @@ function cargarFormularioCarrito() {
   subtotal.textContent = "Subtotal:";
 
   const subtotalCantidad = document.createElement("span");
-  subtotalCantidad.classList.add("col", "text-end");
+  subtotalCantidad.classList.add("col", "text-end", "subtotal");
   subtotalCantidad.textContent = "165€";
 
   fila1.appendChild(subtotal);
   fila1.appendChild(subtotalCantidad);
+
+  const filaDescuento = document.createElement("div");
+  filaDescuento.classList.add("row", "d-none", "justify-content-between", "mt-2", "filaDescuento")
+
+  const tipoDescuento = document.createElement("span")
+  tipoDescuento.classList.add("col", "tipoDescuento", "text-uppercase")
+  tipoDescuento.textContent = ""
+
+  const descuentoNum = document.createElement("span")
+  descuentoNum.classList.add("col", "text-end", "descuento")
+  descuentoNum.textContent = 0
+
+  filaDescuento.appendChild(tipoDescuento)
+  filaDescuento.appendChild(descuentoNum)
 
   const fila2 = document.createElement("div");
   fila2.classList.add("row", "d-flex", "justify-content-between", "mt-2");
@@ -348,7 +375,7 @@ function cargarFormularioCarrito() {
   IVA.textContent = "21% IVA:";
 
   const precioIVA = document.createElement("span");
-  precioIVA.classList.add("col", "text-end");
+  precioIVA.classList.add("col", "text-end", "precio_iva");
   precioIVA.textContent = "185€";
 
   fila2.appendChild(IVA);
@@ -358,11 +385,11 @@ function cargarFormularioCarrito() {
   fila3.classList.add("row", "d-flex", "justify-content-between", "mt-4");
 
   const total = document.createElement("h2");
-  total.classList.add("col", "fw-bold");
+  total.classList.add("col", "fw-bold", "total");
   total.textContent = "TOTAL:";
 
   const totalCantidad = document.createElement("h2");
-  totalCantidad.classList.add("col", "fw-bold", "text-end");
+  totalCantidad.classList.add("col", "fw-bold", "text-end", "precioTotal");
   totalCantidad.textContent = "185€";
 
   fila3.appendChild(total);
@@ -385,9 +412,13 @@ function cargarFormularioCarrito() {
 
   const lineaDivisora = document.createElement("hr");
   const lineaDivisora2 = document.createElement("hr");
+  const lineaDivisora3 = document.createElement("hr");
+
+  filaDescuento.appendChild(lineaDivisora3)
 
   resumenDiv.appendChild(fila1);
   resumenDiv.appendChild(lineaDivisora);
+  resumenDiv.appendChild(filaDescuento)
   resumenDiv.appendChild(fila2);
   resumenDiv.appendChild(lineaDivisora2);
   resumenDiv.appendChild(fila3);
