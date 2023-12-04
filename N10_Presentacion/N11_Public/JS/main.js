@@ -7,6 +7,18 @@ const objCarritoManagerMain = new carritoManager();
 window.onload = cargarEstadoLogin();
 //window.onload = objCarritoManagerMain.insertarProductosLocalStorageEnCarrito()
 
+
+//Controlar que un usuario normal entre en administracion
+const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+const url = window.location.pathname;
+const parteDespuesDelDominio = url.split('/').filter(Boolean).pop();
+
+if (userInfo && userInfo.idRol === 1 && (parteDespuesDelDominio === 'productos' || parteDespuesDelDominio === 'pedidos' || parteDespuesDelDominio === 'usuarios' || parteDespuesDelDominio === 'descuentos') ) {
+  location.href = "/";
+} 
+
+
+
 // ---------------------LOGIN-----------------------------------
 
 //Elmentos del DOM
@@ -40,9 +52,12 @@ if (btnLogin) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          usuario: datosLogin[0],
-          email: datosLogin[1],
-          contrasena: datosLogin[2],
+          tipo: "validarLogin",
+          datos: {
+            usuario: datosLogin[0],
+            email: datosLogin[1],
+            contrasena: datosLogin[2]
+          }
         }),
       })
         .then((response) => response.json())
@@ -52,6 +67,13 @@ if (btnLogin) {
             loginInfo.classList.replace("d-none", "d-block");
           } else {
             alert(data[0].usuario + " te has logueado correctamente");
+
+            if(data[0].idRol === 2){
+              location.href = "productos";
+
+            }else{
+              location.href = "/";
+            }
             localStorage.setItem("userInfo", JSON.stringify(data[0]));
             cargarEstadoLogin();
           }
@@ -116,7 +138,7 @@ btnIniciarSesionCarrito.addEventListener("click", () => {
 
 //Obtener informacion de logueo
 function cargarEstadoLogin() {
-  fetch("../N20_Negocio/N21_Controladores/usuariosControlador.php", {
+  fetch("../N20_Negocio/N21_Controladores/usuariosControlador.php?accion2=obtenerEstadoLogin", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -208,7 +230,7 @@ function cargarFormularioPerfil(datosUsuario) {
   itemOpcion1.classList.add("border-bottom", "pb-2");
 
   const itemLink1 = document.createElement("a");
-  itemLink1.setAttribute("href", "");
+  itemLink1.setAttribute("href", "/perfil");
   itemLink1.classList.add("fw-bold");
   itemLink1.textContent = "Perfil";
 
@@ -250,7 +272,7 @@ function cargarFormularioPerfil(datosUsuario) {
   divLogin.appendChild(divOpcionesPerfil);
 
   btn.addEventListener("click", () => {
-    fetch("../N20_Negocio/N21_Controladores/usuariosControlador.php", {
+    fetch("../N20_Negocio/N21_Controladores/usuariosControlador.php?accion=eliminarSesion", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -321,11 +343,11 @@ function cargarFormularioCarrito() {
   aplicarCodigoButton.innerHTML = '<i class="fa-solid fa-check"></i>';
 
   const mensaje = document.createElement('p')
-  mensaje.classList.add("mensajeCarrito", "text-danger","fw-bold", "mt-2", "d-none")
+  mensaje.classList.add("mensajeCarrito", "text-danger", "fw-bold", "mt-2", "d-none")
   mensaje.textContent = "oiug"
 
 
-  aplicarCodigoButton.addEventListener("click", ()=>{
+  aplicarCodigoButton.addEventListener("click", () => {
     objCarritoManagerMain.gestionarCodigosDescuento();
   })
 
@@ -406,8 +428,8 @@ function cargarFormularioCarrito() {
     if (infoCarrito) {
       mandarDatosDeCompra();
     }
-     
-    
+
+
   });
 
   const lineaDivisora = document.createElement("hr");
@@ -451,7 +473,7 @@ function mandarDatosDeCompra() {
       ventaLineas: ventaLineas
     };
 
-  
+
     fetch("../N20_Negocio/N21_Controladores/ventasControlador.php", {
       method: "POST",
       headers: {
@@ -461,12 +483,12 @@ function mandarDatosDeCompra() {
     })
       .then((response) => response.json())
       .then((data) => {
-          if(data.estado === 'success'){
-            alert("Compra realizada con exito")
-          }else{
-            alert("No se ha podido realizar la compra")
+        if (data.estado === 'success') {
+          alert("Compra realizada con exito")
+        } else {
+          alert("No se ha podido realizar la compra")
 
-          }
+        }
       })
       .catch((error) => console.error("Error:", error));
   } else {
@@ -482,8 +504,8 @@ function mandarDatosDeCompra() {
 //TOPBAR
 const admin = document.querySelector(".topbar")
 
-if(admin){
-  
+if (admin) {
+
   const textoUsuario = document.querySelector(".perfilUsuario")
   textoUsuario.textContent = JSON.parse(localStorage.getItem('userInfo')).usuario
 

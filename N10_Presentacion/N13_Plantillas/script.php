@@ -5,6 +5,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
+<script src="https://cdn.datatables.net/v/dt/jqc-1.12.4/dt-1.13.6/b-2.4.2/sl-1.7.0/datatables.min.js"></script>
+<script src="N50_Vendor/Editor-2.2.2/js/dataTables.editor.js"></script>
+
+
 <script src="N10_Presentacion\N11_Public\JS\carritoManager_class.js"></script>
 
 <script src="N10_Presentacion\N11_Public\JS\main.js"></script>

@@ -1,4 +1,3 @@
-console.log("hola")
 
 let currentStep = 1;
 
@@ -17,55 +16,58 @@ let currentStep = 1;
       $(`#step${currentStep}`).addClass('active');
     }
   }
-// Obtener referencias a los elementos del formulario
+
+// Elementos del formulario
 const usuarioInput = document.getElementById('usuarioregistro');
 const nombreInput = document.getElementById('nombreregistro');
 const apellidoInput = document.getElementById('apellidoregistro');
 const emailInput = document.getElementById('emailregistro');
 const contraseñaInput = document.getElementById('contraseñaregistro');
+
 // Escuchar el evento click del botón "Registrarse" en el segundo paso
 document.getElementById('multipasos-form').addEventListener('click', function (event) {
   // Verificar si el elemento clickeado es el botón "Registrarse" en el segundo paso
   if (event.target && event.target.id === 'registrarse-btn') {
-      // Validar que todos los campos estén llenos
-      if (!areAllFieldsFilled()) {
-          // Mostrar la alerta roja y salir sin enviar la solicitud
-          showStep(3, false);
-          return;
-      }
+    // Validar que todos los campos estén llenos
+    if (!areAllFieldsFilled()) {
+      // Mostrar la alerta roja y salir sin enviar la solicitud
+      showStep(3, false);
+      return;
+    }
 
-      // Crear un objeto JSON con los datos del formulario
-      const formData = {
-          usuario: usuarioInput.value,
-          nombre: nombreInput.value,
-          apellido: apellidoInput.value,
-          email: emailInput.value,
-          contraseña: contraseñaInput.value,
-      };
+    // Crear un objeto con la estructura requerida
+    const requestData = {
+      "tipo": 'registrarUsuario',
+      "datos": {
+        "usuario": usuarioInput.value,
+        "nombre": nombreInput.value,
+        "apellido": apellidoInput.value,
+        "email": emailInput.value,
+        "passw": contraseñaInput.value,
+        "fechaRegistro": new Date().toISOString().slice(0, 19).replace("T", " "), // Formato 'Y-m-d H:i:s'
+        "idRol" : 1
+      },
+    };
 
-      // Convertir el objeto JSON a una cadena
-      const jsonData = JSON.stringify(formData);
-
-      // Enviar la cadena JSON al controlador PHP usando Fetch API
-      fetch('../N20_Negocio/N21_Controladores/usuariosControlador.php', {
-          method: 'PUT',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: jsonData,
-      })
+    // Enviar los datos al controlador PHP usando Fetch API
+    fetch('../N20_Negocio/N21_Controladores/usuariosControlador.php', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    })
       .then(response => {
-          if (!response.ok) {
-              throw new Error('Error en la solicitud');
-          }
-          // Datos enviados correctamente, mostrar el paso 3 con la alerta verde
-          showStep(3, true);
-          console.log('Datos enviados correctamente');
+        if (!response.ok) {
+          throw new Error('Error en la solicitud');
+        }
+        // Datos enviados correctamente, mostrar el paso 3 con la alerta verde
+        showStep(3, true);
       })
       .catch(error => {
-          // Error al enviar los datos, mostrar el paso 3 con la alerta roja
-          showStep(3, false);
-          console.error('Error al enviar los datos:', error.message);
+        // Error al enviar los datos, mostrar el paso 3 con la alerta roja
+        showStep(3, false);
+        console.error('Error al enviar los datos:', error.message);
       });
   }
 });
@@ -74,7 +76,7 @@ document.getElementById('multipasos-form').addEventListener('click', function (e
 function showStep(step, success) {
   // Ocultar todos los pasos
   document.querySelectorAll('.step').forEach(stepElement => {
-      stepElement.style.display = 'none';
+    stepElement.style.display = 'none';
   });
 
   // Mostrar el paso deseado
@@ -86,13 +88,13 @@ function showStep(step, success) {
   const errorAlert = stepElement.querySelector('.alert-danger');
 
   if (!success) {
-      // Si no hay éxito, mostrar la alerta roja
-      successAlert.style.display = 'none';
-      errorAlert.style.display = 'block';
+    // Si no hay éxito, mostrar la alerta roja
+    successAlert.style.display = 'none';
+    errorAlert.style.display = 'block';
   } else {
-      // Si hay éxito, mostrar la alerta verde
-      successAlert.style.display = 'block';
-      errorAlert.style.display = 'none';
+    // Si hay éxito, mostrar la alerta verde
+    successAlert.style.display = 'block';
+    errorAlert.style.display = 'none';
   }
 }
 
@@ -101,6 +103,8 @@ function areAllFieldsFilled() {
   const fields = [usuarioInput, nombreInput, apellidoInput, emailInput, contraseñaInput];
   return fields.every(field => field.value.trim() !== '');
 }
+
+
 
 
 

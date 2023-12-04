@@ -12,29 +12,12 @@ require_once 'N00_Config\app.php';
                 <img class="mt-4" src="N10_Presentacion\N14_Assets\Images\logo.png" width="80em" alt="">
             </a>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item mt-5">
-                <a class="nav-link text-dark" href="<?php echo APP_URL?>/dashboard">
-                    <i class="fa-solid fa-chart-line text-dark fs-4"></i>
-                    <span class="fs-5 fw-bold ms-2">Balance</span>
-                </a>
-            </li>
-
             <!-- Nav Item - Productos -->
-            <li class="nav-item mt-3">
+            <li class="nav-item mt-5">
                 <a class="nav-link text-dark" href="<?php echo APP_URL?>/productos" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fa-solid fa-box text-dark fs-4"></i>
                     <span class="fs-5 fw-bold ms-2">Productos</span>
-                </a>
-            </li>
-
-            <!-- Nav Item - Pedidos -->
-            <li class="nav-item mt-3">
-                <a class="nav-link text-dark" href="<?php echo APP_URL?>/pedidos" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fa-solid fa-cart-shopping text-dark fs-4"></i>
-                    <span class="fs-5 fw-bold ms-2" >Pedidos</span>
                 </a>
             </li>
 
@@ -47,9 +30,20 @@ require_once 'N00_Config\app.php';
                 </a>
             </li>
 
+            <!-- Nav Item - Pedidos -->
+            <li class="nav-item mt-3">
+                <a class="nav-link text-dark" href="" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fa-solid fa-cart-shopping text-dark fs-4"></i>
+                    <span class="fs-5 fw-bold ms-2" >Pedidos</span>
+                </a>
+            </li>
+
+            
+
             <!-- Nav Item - Charts -->
             <li class="nav-item mt-3">
-                <a class="nav-link text-dark" href="<?php echo APP_URL?>/descuentos">
+                <a class="nav-link text-dark" href="">
                     <i class="fa-solid fa-tags text-dark fs-4"></i>
                     <span class="fs-5 fw-bold ms-2">Descuentos</span></a>
             </li>

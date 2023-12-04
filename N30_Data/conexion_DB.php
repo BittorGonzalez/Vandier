@@ -12,7 +12,7 @@ class conexion_DB
     private $passw = DB_PASS;
 
 
-    protected function conectar()
+    public function conectar()
     {
 
         try {
@@ -32,24 +32,40 @@ class conexion_DB
 
 
 
-    protected function insertar($datos, $tabla)
-{
+    protected function insertar($datos, $tabla){
     try {
-        $conexion = $this->conectar();
+        
+        $query = "INSERT INTO $tabla (";
 
-        $campos = implode(", ", array_keys($datos));
-        $valores = ":" . implode(", :", array_keys($datos));
-
-        $sql = "INSERT INTO $tabla ($campos) VALUES ($valores)";
-
-        $stmt = $conexion->prepare($sql);
-
-        foreach ($datos as $key => $value) {
-            $stmt->bindValue(":$key", $value);
+        $c= 0;
+        foreach($datos as $clave){
+            if($c<=1){$query.=",";}
+            $query.= $clave["campo_nombre"];
+            $c++;
         }
 
-        $stmt->execute();
-        echo "Datos insertados correctamente en la base de datos";
+        $query.= ") VALUES (";
+
+        $c= 0;
+        foreach($datos as $clave){
+            if($c<=1){$query.=",";}
+            $query.= $clave["campo_marcador"];
+            $c++;
+        }
+
+        $query.= ")";
+
+        $sql = $this->conectar()->prepare($query);
+
+        
+        foreach($datos as $clave){
+           $sql->bindParam($clave["campo_marcador"], $clave["campo_valor"]);
+        }
+
+        $sql->execute();
+        return $sql;
+        
+       
     } catch (PDOException $e) {
         echo 'Error al insertar datos: ' . $e->getMessage();
     }
@@ -57,26 +73,43 @@ class conexion_DB
 
 
 
-    protected function actualizar($datos, $tabla){}
+
+
+
+//TODO: Refactorizar e
+protected function actualizar($datos, $tabla, $condicion = "")
+{
+    try {
+        // Construir la consulta UPDATE
+        $setsStr = implode(', ', array_map(fn($campo) => "$campo = ?", array_keys($datos)));
+        $sql = "UPDATE $tabla SET $setsStr";
+
+        // Agregar la condición si se proporciona
+        if ($condicion !== "") {
+            $sql .= " WHERE $condicion";
+        }
+
+        // Preparar la consulta
+        $stmt = $this->conectar()->prepare($sql);
+
+        // Ejecutar la consulta
+        $stmt->execute(array_values($datos));
+
+        // Retornar el número de filas afectadas (0 si no se realizaron cambios)
+        return $stmt->rowCount();
+        
+    } catch (PDOException $e) {
+        // Manejar errores de la base de datos según sea necesario
+        echo "Error al actualizar en la base de datos. Consulta: $sql. Mensaje de error: " . $e->getMessage();
+    }
+}
+
     
 
     protected function ejecutar($procedimiento){
     try {
         $conexion = $this->conectar();
         $stmt = $conexion->prepare($procedimiento);
-
-
-
-        // foreach ($parametros as $key => $value) {
-        //     if (is_array($value)) {
-        //         foreach ($value as $innerKey => $innerValue) {
-        //             $stmt->bindValue(":$innerKey", $innerValue);
-        //         }
-        //     } else {
-        //         $stmt->bindValue(":$key", $value);
-        //     }
-        // }
-
 
         $stmt->execute();
         return $stmt;

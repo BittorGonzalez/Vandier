@@ -4,6 +4,11 @@ Options All -Indexes
 # Redirigir solicitudes que contienen "prueba" a N60_Test/prueba.php
 RewriteRule ^prueba$ N60_Test/prueba.php [L]
 
+# Permitir métodos HTTP DELETE
+<Limit GET POST PUT DELETE>
+    Allow from all
+</Limit>
+
 # Redirigir otras solicitudes a index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
