@@ -29,7 +29,8 @@ class carritoManager {
         "pb-4",
         "border-bottom",
         "border-2",
-        "position-relative"
+        "position-relative",
+        "cardstyle"
       );
 
       const iconBorrar = document.createElement("i");
@@ -129,12 +130,13 @@ class carritoManager {
     card.classList.add(
       "cardProducto",
       "h-100",
-      "w-100",
-      "p-2",
-      "rounded-3",
-      "position-relative"
+      "w-80",
+      "p-4",
+      "rounded-5",
+      "position-relative",
+      "cardstyle"
     );
-
+    
     card.style.backgroundImage =
       "url(N10_Presentacion/N14_Assets/Images/" + datos["imagen"] + ")";
     card.style.backgroundSize = "cover";

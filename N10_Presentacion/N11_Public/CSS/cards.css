@@ -30,4 +30,13 @@
 .btnFav {
   width: 35px;
   height: 35px;
+}
+
+.colContenedor {
+  height: 30vh !important;
+  border-radius: 50% !important;
+}
+
+.cardstyle {
+  box-shadow: inset 0px 0px 5px 1px rgb(0, 0, 0);
 }/*# sourceMappingURL=cards.css.map */
