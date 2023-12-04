@@ -1,7 +1,7 @@
 .navbar {
   transition: background-color 0.5s ease, height 0.5s ease;
   // Estilos del navbar principal
-  background-color: #f8f9fa;
+  background-color: rgb(255, 255, 255);
   display: flex;
   position: sticky;
   top: 0px;
@@ -98,13 +98,11 @@
   left: 85%;
   border-width: 15px;
   border-style: solid;
-  border-color: transparent transparent white transparent; /* Define el color de la flecha (en este caso, blanco) */
+  border-color: transparent transparent white transparent;
+  /* Define el color de la flecha (en este caso, blanco) */
 }
 
 // Estilos específicos para el carrito
-
-
-
 .carrito_content {
   width: 21em;
 
@@ -229,71 +227,71 @@
 
 @media screen and (max-width: 667px) {
   .navbar {
-  // Estilos del navbar principal
-  background-color: #f8f9fa;
-  position: sticky;
-  z-index: 10;
+    // Estilos del navbar principal
+    background-color: #f8f9fa;
+    position: sticky;
+    z-index: 10;
 
-  .dlinks {
-    // Estilos para los enlaces
-    display: flex;
-    align-items: center;
-    width: 100px;
-    margin-right: auto;
-    text-align: center;
-
-    ul {
-      padding: 0;
-      list-style: none;
-      white-space: wrap;
-
-      li {
-        display: inline-block;
-        margin-left: 20px;
-        margin-right: 20px;
-
-        a {
-          text-decoration: none;
-          color: #000;
-        }
-      }
-    }
-  }
-
-  .dlogo {
-    display: none;
-    // Estilos para el logo
-    margin-top: auto;
-    margin-bottom: auto;
-
-    img {
+    .dlinks {
+      // Estilos para los enlaces
+      display: flex;
+      align-items: center;
       width: 100px;
+      margin-right: auto;
+      text-align: center;
+
+      ul {
+        padding: 0;
+        list-style: none;
+        white-space: wrap;
+
+        li {
+          display: inline-block;
+          margin-left: 20px;
+          margin-right: 20px;
+
+          a {
+            text-decoration: none;
+            color: #000;
+          }
+        }
+      }
     }
-  }
 
-  .diconos {
-    // Estilos para los iconos
-    width: 300px;
-    margin-left: auto;
-    display: flex;
-    flex-direction: row-reverse;
+    .dlogo {
+      display: none;
+      // Estilos para el logo
+      margin-top: auto;
+      margin-bottom: auto;
 
-    ul {
-      padding: 0;
-      list-style: none;
-      white-space: nowrap;
+      img {
+        width: 100px;
+      }
+    }
 
-      li {
-        display: inline-block;
-        margin-left: 15px;
-        margin-right: 15px;
+    .diconos {
+      // Estilos para los iconos
+      width: 300px;
+      margin-left: auto;
+      display: flex;
+      flex-direction: row-reverse;
 
-        a {
-          text-decoration: none;
-          color: #000;
+      ul {
+        padding: 0;
+        list-style: none;
+        white-space: nowrap;
+
+        li {
+          display: inline-block;
+          margin-left: 15px;
+          margin-right: 15px;
+
+          a {
+            text-decoration: none;
+            color: #000;
+          }
         }
       }
     }
   }
-}
 }

@@ -86,22 +86,3 @@ session_start();
     </div>
 
 </header>
-
-<script>
-    window.addEventListener('scroll', function () {
-        let navbar = document.getElementById('myNavbar');
-
-        // Altura a la que el cambio de estilos se activará
-        let scrollThreshold = 100;
-
-        if (window.scrollY > scrollThreshold) {
-            // Si el desplazamiento vertical es mayor que la altura de scrollThreshold
-            navbar.style.backgroundColor = 'rgba(248, 249, 250, 0.9)'; // Fondo transparente gradual
-            navbar.style.height = '70px'; // Altura aumentada gradual
-        } else {
-            // Si el desplazamiento es menor que scrollThreshold
-            navbar.style.backgroundColor = '#f8f9fa'; // Restaura el color de fondo original
-            navbar.style.height = 'fit-content'; // Restaura la altura original
-        }
-    });
-</script>
